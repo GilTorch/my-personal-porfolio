@@ -23,7 +23,7 @@ export default function Home() {
             <div className={styles.projectDetailsCol2}>
               <div className={styles.projectDetailsCol2Inner}>
                 <div className={styles.projectDetailsTitleContainer}>
-                  <Link href="/">
+                  <Link href="/#portfolio">
                     <Image alt="Carret Right" src={CarretRight} width={26} height={31} />
                   </Link>
                   <h1 className={`${styles.projectDetailsTitle} ${robotoSlab.className}`}>Kay Rapid</h1>

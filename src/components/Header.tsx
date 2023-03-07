@@ -1,8 +1,47 @@
 import Link from 'next/Link'
 import styles from '@/styles/Home.module.css'
 import { roboto, lobster } from '../fonts'
+import { MutableRefObject } from 'react'
 
-const Header = () => (
+
+type Props = {
+  sectionRefs: Array<MutableRefObject<HTMLDivElement>>
+}
+
+const Header: React.FC<Props> = ({ sectionRefs }) => {
+
+
+
+  const links = [
+    {
+      label: "Bio", 
+      sectionRef: sectionRefs[0],
+    },
+    {
+      label: "Expertise & Skills", 
+      sectionRef: sectionRefs[1],
+    },
+    {
+      label: "Portfolio", 
+      sectionRef: sectionRefs[2],
+    },
+    {
+      label: "Certifications", 
+      sectionRef: sectionRefs[3],
+    },
+    {
+      label: "Contact",
+      sectionRef: sectionRefs[4]
+    }
+  ]
+
+  const onLinkPressed = (sectionRef: MutableRefObject<HTMLDivElement>) => {
+    const yOffset = -100
+    const y =  sectionRef?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({top: y, behavior: "smooth"})
+  }
+  
+  return(
     <header>
     <nav className={styles.nav}>
       <ul className={styles.links}>
@@ -11,31 +50,11 @@ const Header = () => (
             Gilbert <span className={styles.logoCircle}>.</span>
           </Link>
         </li>
-        <li className={`${styles.link}  ${roboto.className}`}>
-          <Link href="/#bio">
-            Bio
-          </Link>
+        {links.map((link,index) => (
+          <li key={index} className={`${roboto.className} ${styles.link}`} onClick={() => onLinkPressed(link.sectionRef)}>
+            {link.label}
           </li>
-          <li className={`${styles.link}  ${roboto.className}`}>
-          <Link href="/#expertise-and-skills">
-            Expertise & Skills
-          </Link>
-          </li>
-          <li className={`${styles.link}   ${roboto.className}`}>
-          <Link href="/#portfolio">
-            Portfolio
-          </Link>
-          </li>
-        <li className={`${styles.link}   ${roboto.className}`}>
-          <Link href="/#certifications">
-            Certifications
-          </Link>
-          </li>
-        <li className={`${styles.link}  ${roboto.className}`}>
-          <Link href="/#contact">
-          Contact
-          </Link>
-        </li>
+        ))}
         <li className={`${styles.resume} ${roboto.className}`}>
           <Link href="#contact">
           Resume
@@ -45,6 +64,7 @@ const Header = () => (
     </nav>
   </header>
 )
+}
 
 export default Header
 

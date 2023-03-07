@@ -167,26 +167,80 @@ const skillsData = [
 ]
 
 
+const projects = [
+  {
+    previewImage: SmartPatientImage,
+    title: "Smart Patient",
+    slug: "smart-patient",
+    caption: "a medical app"
+  },
+  {
+    previewImage: ScriptoRerumImage,
+    title: "ScriptoRerum",
+    slug: "scriptorerum",
+    caption: "a mobile app for writers"
+  },
+  {
+    previewImage: MetFeyVetImage,
+    title: "Mèt Fèy Vèt",
+    slug: "met-fey-vet",
+    caption: "a portal for a local politician and activist in Haiti"
+  },
+  {
+    previewImage: HTNImage,
+    title: "Haitian Television Network",
+    slug: "htn-television-network",
+    caption: "a platform to post videos and watch videos posted by others and watch TV"
+  },
+  {
+    previewImage: KayRapidIImage,
+    title: "Kay Rapid",
+    slug: "kay-rapid",
+    caption: "a housing app that help finding a house to rent/buy in Haiti"
+  },
+  {
+    previewImage: ToThePointImage,
+    title: "ToThePoint",
+    slug: "to-the-point",
+    caption: "an social media for students"
+  },
+]
+
+const certifications = [
+  {
+    backgroundImage: FreeCodeCampCertificationImage,
+    title: "FreeCodeCamp Front End",
+  },
+  {
+    backgroundImage: FlatironSchoolCertificationImage,
+    title: "Flatiron Full Stack Web ",
+  }
+]
+
 export default function Home() {
 
-  const webDevelopmentSkillCardRef = useRef(null)
-  const mobileDevelopementSkillCardRef = useRef(null)
-  const backendDevelopemtntSkillCardRef = useRef(null)
-  const otherSkillCardRef = useRef(null)
-
+  const bioRef = useRef(null)
+  const expertiseAndSkillsRef = useRef(null)
+  const portfolioRef = useRef(null)
+  const certificationsRef = useRef(null)
+  const contactRef = useRef(null)
   const [skills, setSkills]  = useState(skillsData)
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null)
   
-  useEffect(()=> {
-    console.log(webDevelopmentSkillCardRef.current)
-  },[])
-
   return (
     <>
       <Head />
-      <Header />
+      <Header 
+        sectionRefs={[
+          bioRef,
+          expertiseAndSkillsRef,
+          portfolioRef,
+          certificationsRef,
+          contactRef,
+        ]}
+      />
       <main className={styles.main}>
-        <section className={styles.section} id="bio">
+        <section ref={bioRef} className={styles.section} id="bio">
           <div className={styles.bioSectionCol1}>
           <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
             <div className={styles.profileImageContainer}>
@@ -211,7 +265,7 @@ export default function Home() {
             </div>
            </div>
         </section>
-        <section className={styles.section} id="expertise-and-skills">
+        <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
           <h2 className={robotoSlab.className}>Expertise & Skills</h2>
           {/* <div className={styles.flipCard}>
             <div className={styles.flipCardInner}>
@@ -229,9 +283,10 @@ export default function Home() {
             {skills.map((skill,index) => (
               <div 
                 key={index}  
-                ref={webDevelopmentSkillCardRef} 
                 className={styles.skillCard}
                 style={{opacity: selectedSkill === skill.category ? 0: 1}}
+                onMouseEnter={() => setSelectedSkill(skill.category)}
+                onMouseLeave={() => setSelectedSkill(null)}
               >
                 <Image alt="Web Development Skill" src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
                <div className={styles.skillCardLabelContainer}>
@@ -256,65 +311,35 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section className={styles.section} id="portfolio">
+        <section ref={portfolioRef} className={styles.section} id="portfolio">
           <h2 className={robotoSlab.className}>My Portfolio</h2>
           <div className={styles.portfolioProjects}>
-            <div className={styles.portfolioProject}>
+          {projects.map((project,index) => (
+            <div key={index}  className={styles.portfolioProject}>
               <div className={styles.portfolioImageContainer}>
-                <Image alt="" src={SmartPatientImage} style={{ objectFit:'cover'}} fill/>
+                <Link href={`/projects/${project.slug}`}>
+                  <Image alt="" src={project.previewImage} style={{ objectFit:'cover'}} fill/>
+                </Link>
               </div>
-              <p className={roboto.className}><span className={styles.projectTitle}>Smart Patient</span>, a medical app</p>
+              <p className={roboto.className}><span className={styles.projectTitle}>{project.title}</span>, {project.caption}</p>
             </div>
-              <div className={styles.portfolioProject}>
-                <div className={styles.portfolioImageContainer}>
-                <Image alt="" src={ScriptoRerumImage} style={{ objectFit:'cover'}} fill/>
-                </div>
-                <p className={roboto.className}><span className={styles.projectTitle}>ScriptoRerum</span>, a mobile app for writers</p>
-              </div> 
-               <div className={styles.portfolioProject}>
-                <div className={styles.portfolioImageContainer}>
-                <Image alt="" src={MetFeyVetImage} style={{ objectFit:'cover'}} fill/>
-                </div>
-                <p className={roboto.className}><span className={styles.projectTitle}>Mèt Fèy Vèt</span>, a portal for a local politician and activist in Haiti</p>
-              </div>
-              <div className={styles.portfolioProject}>
-                <div className={styles.portfolioImageContainer}>
-                <Image alt="" src={HTNImage} style={{objectFit: 'cover'}} fill/>
-                </div>
-                <p className={roboto.className}><span className={styles.projectTitle}>Haitian Television Network</span>, an instagram-like app for students</p>
-              </div>
-              <div className={styles.portfolioProject}>
-                <div className={styles.portfolioImageContainer}>
-                <Image  alt="" src={KayRapidIImage} style={{ objectFit:'cover'}} fill/>
-                </div>
-                <p className={roboto.className}><span className={styles.projectTitle}>Kay Rapid</span>, a housing app that help finding a house to rent/buy in Haiti</p>
-              </div>
-              <div className={styles.portfolioProject}>
-                <div className={styles.portfolioImageContainer}>
-                <Image alt="" src={ToThePointImage} style={{ objectFit:'cover'}} fill/>
-                </div>
-                <p className={roboto.className}><span className={styles.projectTitle}>ToThePoint</span>, an instagram-like app for students</p>
-              </div> 
+          ))}
           </div>
         </section>
-        <section className={styles.section} id="certifications">
+        <section ref={certificationsRef} className={styles.section} id="certifications">
           <h2 className={robotoSlab.className}>Certifications</h2>
           <div className={styles.certifications}>
-            <div className={styles.certification}>
-              <div className={styles.certificationImageContainer}>
-                <Image alt="freeCodeCamp Certification" src={FreeCodeCampCertificationImage} style={{objectFit:"cover"}} fill/>
+            {certifications.map((certification,index) => (
+              <div key={index} className={styles.certification}>
+                <div className={styles.certificationImageContainer}>
+                  <Image alt={`${certification.title} Certification`} src={certification.backgroundImage} style={{objectFit:"cover"}} fill/>
+                </div>
+                <p className={roboto.className}>{certification.title}</p>
               </div>
-              <p className={roboto.className}>Free Code Camp Front End Certification</p>
-            </div>
-            <div className={styles.certification}>
-              <div className={styles.certificationImageContainer}>
-                <Image alt="freeCodeCamp Certification"  src={FlatironSchoolCertificationImage} style={{objectFit:"cover"}} fill/>
-              </div>
-              <p className={roboto.className}>Flatiron Full Stack Web Developer Certification</p>
-            </div>
+            ))}
           </div>
         </section>
-        <section className={styles.section} id="contact">
+        <section ref={contactRef} className={styles.section} id="contact">
           <div className="contact-col-2">
             <h2 className={robotoSlab.className}>
               Let's build something AWESOME!

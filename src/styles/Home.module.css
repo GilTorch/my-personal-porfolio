@@ -47,6 +47,7 @@
     display: inline-block;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 
 
@@ -290,7 +291,7 @@
 .certification{
     width: 320px;
     height: 300px;
-    margin-right: 5px;
+    margin-right: 40px;
 }
 
 
