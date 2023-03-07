@@ -100,6 +100,11 @@
     height: 100vh;
 }
 
+.hint{
+    color: var(--gold);
+    font-size: 16px;
+}
+
 .bioSectionCol1{
     width: 45%;
 }
@@ -234,18 +239,6 @@
 }
 
 
-.mobileDevelopmentSkillCard p {
-    left: 129.5px;
-}
-
-.backendDevelopmentSkillCard p {
-    left: 84px;
-}
-
-.otherSkillCard p{
-    left: 149.5px;
-}
-
 
 /* Porfolio  */
 .portfolioProjects {
@@ -277,6 +270,13 @@
 
 .projectTitle{
    font-style: italic;
+}
+
+.projectDetailsInner{
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
 }
 
 /** Certification Section * */
@@ -361,7 +361,7 @@
 }
 
 .projectDetailsCol2{
-    width: 80%;
+    width: 100%;
 }
 
 .projectDetailsCol2Inner{

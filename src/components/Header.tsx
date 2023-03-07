@@ -36,7 +36,7 @@ const Header: React.FC<Props> = ({ sectionRefs }) => {
   ]
 
   const onLinkPressed = (sectionRef: MutableRefObject<HTMLDivElement>) => {
-    const yOffset = -100
+    const yOffset = -120
     const y =  sectionRef?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({top: y, behavior: "smooth"})
   }

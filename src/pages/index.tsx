@@ -266,7 +266,7 @@ export default function Home() {
            </div>
         </section>
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
-          <h2 className={robotoSlab.className}>Expertise & Skills</h2>
+          <h2 className={robotoSlab.className}>Expertise & Skills <span className={`${roboto.className} ${styles.hint}`}>(Hover on the skill category to see skills)</span></h2>
           {/* <div className={styles.flipCard}>
             <div className={styles.flipCardInner}>
               <div className={styles.flipCardFront}>
@@ -288,7 +288,7 @@ export default function Home() {
                 onMouseEnter={() => setSelectedSkill(skill.category)}
                 onMouseLeave={() => setSelectedSkill(null)}
               >
-                <Image alt="Web Development Skill" src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
+                <Image alt={`${skill.category} Skill`} src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
                <div className={styles.skillCardLabelContainer}>
                 <p className={roboto.className}>{skill.category}</p>
                </div>
