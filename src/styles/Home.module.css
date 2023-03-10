@@ -1,3 +1,6 @@
+
+
+
 /** Navigation Styles **/
 .nav{
     background-color: var(--mainBackgroundColor);
@@ -6,12 +9,13 @@
     width: 100%;
     height: 100px;
     position: fixed;
-    z-index: 100000;
+    z-index: 1000;
     top: 0; 
     left: 0;
     right: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex; 
+    flex-direction: row;
     align-items: center;
 }
 
@@ -34,7 +38,7 @@
 
 .links{
     width: 71.04%;
-    /* height: 100%; */
+    height: 100%;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -96,8 +100,8 @@
 
 
 .section{
-    margin-top: var(--topSectionSpacing);
-    height: 100vh;
+
+    min-height: 100vh;
 }
 
 .hint{
@@ -128,7 +132,7 @@
 /** Expertise & Skills **/
 
 
-.flipCard {
+  .flipCard {
     background-color: red;
     width: 300px;
     height: 300px;
@@ -368,13 +372,15 @@
 }
 
 .projectDetailsTitleContainer{
-    background-color: red;
     display: flex; 
     align-items: center;
 }
 
 .projectDetailsTitle{
+    width: 100%;
+    height: 100%;
     font-size: 60px;
+    text-align: center;
 }
 
 .projectDetailsPragraph{
@@ -382,3 +388,90 @@
     line-height: 24px;
     margin-top: 20px;
 }
+
+
+.me{
+    color: white;
+    font-weight: bold;
+    font-style: none;
+    text-decoration: none;
+}
+
+@keyframes bounce{
+    0% { transform: scale(1);}
+    50% { transform: scale(1.25)}
+    100% { transform: scale(1)}
+}
+
+.heart{
+    animation: bounce; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+/** Responsive ** 
+
+** Breakpoints: 1099 **/
+
+.closeButtonContainer{
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+/* @media only screen and (max-width: 1119px){
+    .main{
+        width: 100%;
+    }
+    .nav{
+        height: auto;
+    }
+    .skillCards, .skillCardsOpen{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }    
+    .links{
+        width: 100%;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+    .link{
+        width: 100%;
+        display: block;
+        text-align:center;
+        margin-top: 30px;
+    }
+    .resume{
+        width: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .closeButtonContainer{
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 10000000;
+    }
+
+    .bioSectionCol1{
+        width: 100%;
+    }
+
+    .bioSectionCol2{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+} */

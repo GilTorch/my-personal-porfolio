@@ -242,11 +242,9 @@ export default function Home() {
       <main className={styles.main}>
         <section ref={bioRef} className={styles.section} id="bio">
           <div className={styles.bioSectionCol1}>
-          <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
-            <div className={styles.profileImageContainer}>
-              <Image alt="Gilbert Torchon" src={ProfilePicImage} style={{objectFit: 'cover'}} fill/>
+            <div className={`${styles.profileImageContainer}`}>
+              <Image  alt="Gilbert Torchon" src={ProfilePicImage} style={{objectFit: 'cover'}} fill/>
             </div>
-          </Animated>
           </div>
            <div className={styles.bioSectionCol2}>
             <h1 className={robotoSlab.className}>
@@ -260,7 +258,7 @@ export default function Home() {
                 <Image alt="Linkedin logo" src="/icons/github.png" width="50" height="50" />
               </Link>
               <Link className={styles.icons} target="_blank" href="https://www.linkedin.com/in/gilbert-torchon-22a9a1a4/">
-               <Image alt="Linkedin logo" src="/icons/linkedin.png" width="50" height="50" />
+                <Image alt="Linkedin logo" src="/icons/linkedin.png" width="50" height="50" />
               </Link>
             </div>
            </div>

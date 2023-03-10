@@ -1,7 +1,10 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/Link'
 import styles from '@/styles/Home.module.css'
 import { roboto, lobster } from '../fonts'
 import { MutableRefObject } from 'react'
+import CloseButton from './svg/CloseButton'
+import HamburgerMenu from './svg/Hamburger'
 
 
 type Props = {
@@ -10,7 +13,7 @@ type Props = {
 
 const Header: React.FC<Props> = ({ sectionRefs }) => {
 
-
+  const [navbarVisible, setNavbarVisible] = useState(true)
 
   const links = [
     {
@@ -40,10 +43,30 @@ const Header: React.FC<Props> = ({ sectionRefs }) => {
     const y =  sectionRef?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({top: y, behavior: "smooth"})
   }
+
+  useEffect(() =>{
+    window.addEventListener("resize", resize);
+    resize();
+},[])
+
+  const resize = () => {
+    const greaterThanMobile =  window.innerWidth <= 1119
+    if(greaterThanMobile){
+      setNavbarVisible(true)
+    }
+  }
+
   
   return(
     <header>
-    <nav className={styles.nav}>
+    <div onClick={() => setNavbarVisible((visible) => !visible)} className={styles.closeButtonContainer}>
+      {navbarVisible ? (
+        <CloseButton/>
+      ):(
+        <HamburgerMenu />
+      )}
+    </div>
+    <nav style={{display: navbarVisible ? "block": "none"}} className={styles.nav}>
       <ul className={styles.links}>
         <li className={`${styles.logo} ${lobster.className}`}>
           <Link href="/">
@@ -56,7 +79,7 @@ const Header: React.FC<Props> = ({ sectionRefs }) => {
           </li>
         ))}
         <li className={`${styles.resume} ${roboto.className}`}>
-          <Link href="#contact">
+          <Link target="_blank" href="https://drive.google.com/file/d/1bHK7xjj9_oZpWoI1kta_4LiHRwTv4Qts/view?usp=share_link">
           Resume
           </Link>
         </li>

@@ -21,7 +21,7 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+	vertical-align: baselin2e;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -71,7 +71,7 @@ body{
 
 h1{
   color: var(--gold);
-  font-size: 96px;
+  font-size: 5em;
   font-weight: 200;
   margin-bottom: 41px;
   line-height: 127px;
@@ -80,13 +80,13 @@ h1{
 h2{
   color: var(--gold);
   font-weight: 200;
-  font-size: 60px;
+  font-size: 4em;
   margin-bottom: 41px;
 }
 
 p{
   color: white;
-  font-size: 16px;
+  font-size: 1em;
 }
 
 
@@ -140,3 +140,39 @@ footer{
   padding-bottom: 20px;
 }
 /* Rectangle 1 */
+
+main{
+  padding-top: 100px;
+}
+
+
+
+@media only screen and (max-width: 1119px) {
+    
+  h1 {
+    font-size: 3rem;
+    line-height: 60px;
+  }
+
+  h2{
+    font-size: 2rem;
+  }
+
+  #bio{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #expertise-and-skills{
+    margin-top: 150px;
+  }
+
+  .section{
+    height: 100vh;
+  }
+
+}
