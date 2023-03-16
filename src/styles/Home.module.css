@@ -1,83 +1,4 @@
-
-
-
 /** Navigation Styles **/
-.nav{
-    background-color: var(--mainBackgroundColor);
-    margin-left: auto; 
-    margin-right: auto;
-    width: 100%;
-    height: 100px;
-    position: fixed;
-    z-index: 1000;
-    top: 0; 
-    left: 0;
-    right: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    display: flex; 
-    flex-direction: row;
-    align-items: center;
-}
-
-.logo{
-    display: inline-block;
-    margin-right: 12.7%;
-    font-size: 24px;
-    color: white;
-}
-
-.logo a{
-    text-decoration: none;
-    color: white;
-}
-
-
-.logoCircle{
-   color: var(--gold);
-}
-
-.links{
-    width: 71.04%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-
-.link{
-    display: inline-block;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-
-.resume{
-    display:inline-block;
-    background-color: var(--gold);
-    width: 14.66%;
-    height: 50px;
-    margin-left: 8.9%;
-    text-align: center;
-    border-radius: 24px;
-}
-
-.resume a {
-    display: inline-block;
-    font-weight: 700;
-    padding-top: 15.5px;
-    color: black;
-    text-decoration: none;
-}
-
-.link a {
-    color: white;
-    text-decoration: none;
-    line-height: auto;
-}
 
 /** Bio **/
 
@@ -131,62 +52,47 @@
 
 /** Expertise & Skills **/
 
-
-  .flipCard {
-    background-color: red;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px
-  
-  }
-  
-  .flipCardInner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-  .flipCard:hover .flipCardInner {
-    transform: rotateY(180deg);
-  }
-  
-  .flipCardFront, .flipCardBack {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flipCardFront {
-    background-color: #bbb;
-    color: black;
-  }
-  
-  .flipCardBack {
-    background-color: #2980b9;
-    color: white;
-    transform: rotateY(180deg);
-  }
-
 /** **/
-.skillCards, .skillCardsOpen{
+@-webkit-keyframes flipCard {
+
+    from { transform: rotateY(0)}
+    to { transform: rotateY(180deg)}    
+}
+
+@keyframes flipCard {
+
+    from { transform: rotateY(0)}
+    to { transform: rotateY(180deg)}
+    
+}
+
+
+.skillCards{
     display: flex;
     flex-direction: row;
 }
 
-.skillCardsOpen{
-    position: relative;
-    top: -433px;
-    z-index: -1;
-    left: 0;
+.skillCardBox {
+    perspective: 800px;
+    transition: all 0.3s ease 0s;
 }
 
-.skillCard,.skillCardOpen{
+
+.skillCardBox:hover .skillCard {
+    animation: flipCard 1s;
+    transform: rotateY(180deg);
+}
+
+
+.skillCard{
+    transform-style: preserve-3d;
+}
+
+
+
+.skillCardFront,.skillCardBack{
+    backface-visibility: hidden;
+    box-sizing: border-box;
     position: relative;
     width: 349px;
     height: 433px;
@@ -194,7 +100,16 @@
     cursor: pointer;
 }
 
-.skillCardOpen{
+.skillCardBack{
+    position: relative;
+    top: -433px;
+    z-index: -1;
+    left: 0;
+    transform: rotateY(180deg)
+}
+
+
+.skillCardBack{
     background-color: #444444;
     display: flex;
     flex-direction: column;
@@ -202,23 +117,23 @@
     align-items: center
 }
 
-.skillCardOpen h3{
+.skillCardBack h3{
     font-weight: bold;
     color: white;
 }
 
-.skillCardOpen h4{
+.skillCardBack h4{
     font-weight: bold;
     color: white;
 }
 
-.skillCardOpen p{
+.skillCardBack p{
     color: white;
     font-style: italic;
     margin-top: 5px;
 }
 
-.skillCardOpenInnerWrapper{
+.skillCardBackInnerWrapper{
     text-align: left;
     width: 80%;
     height: 80%;
@@ -227,7 +142,7 @@
     justify-content: space-between;
 }
 
-.skillCardLabelContainer{
+.skillCardFrontLabelContainer{
     width: 100%;
     height: 100%;
     position: relative;
@@ -236,7 +151,7 @@
     align-items: center;
 }
 
-.skillCard p {
+.skillCardFront p {
     font-weight: 500;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     cursor: pointer;
@@ -246,7 +161,6 @@
 
 /* Porfolio  */
 .portfolioProjects {
-    /* width: 100%; */
     display: flex; 
     flex-direction: row;
     align-items: flex-start;
@@ -397,11 +311,16 @@
     text-decoration: none;
 }
 
+
+
+
 @keyframes bounce{
     0% { transform: scale(1);}
     50% { transform: scale(1.25)}
     100% { transform: scale(1)}
 }
+
+
 
 .heart{
     animation: bounce; /* referring directly to the animation's @keyframe declaration */
@@ -418,6 +337,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    z-index: 10000
 }
 
 
@@ -428,33 +348,42 @@
     .nav{
         height: auto;
     }
-    .skillCards, .skillCardsOpen{
-        display: flex;
+    .skillCards{
+        background-color: red;
         flex-direction: column;
-        flex-wrap: wrap;
-    }    
-    .links{
+        align-items: center;
+        /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
+    } 
+
+    .skillCard,.skillCardFront, .skillCardBack{
         width: 100%;
-       display: flex;
-       flex-direction: column;
-       align-items: center;
-    }
-    .link{
-        width: 100%;
-        display: block;
-        text-align:center;
-        margin-top: 30px;
-    }
-    .resume{
-        width: 50%;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
     }
 
-    .logo{
-        display: none;
+
+
+    .portfolioProjects{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+    
+    .certifications {
+        /* width: 100%; */
+        display: flex; 
+    
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+
+    .portofolioImageContainer{
+        width: 2000px;
     }
 
     .closeButtonContainer{
@@ -473,5 +402,14 @@
         width: 100%;
         margin-left: 0px;
         margin-right: 0px;
+    }
+
+    .form{
+        width: 100%;
+        height: auto;
+    }
+
+    .formGroup button{
+        width: 100%;
     }
 } 

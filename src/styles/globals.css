@@ -175,4 +175,18 @@ main{
     height: 100vh;
   }
 
+  #contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+
+  .contact-col-1{
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+  }
+
 }

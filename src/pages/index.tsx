@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {Animated} from "react-animated-css";
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
 import BackendDevImage from '../../public/images/skill-cards/backend.jpg'
@@ -17,7 +16,7 @@ import HTNImage from '../../public/images/projects/haitian_television_network.pn
 import FreeCodeCampCertificationImage from '../../public/images/certifications/fcc_logo.jpeg'
 import FlatironSchoolCertificationImage from '../../public/images/certifications/flatiron_school.jpeg'
 import { Header, Footer, Head } from '@/components'
-import { roboto, lobster, robotoSlab } from '../fonts'
+import { roboto, robotoSlab } from '../fonts'
 
 const skillsData = [
   {
@@ -279,31 +278,27 @@ export default function Home() {
           </div> */}
           <div className={styles.skillCards}>
             {skills.map((skill,index) => (
-              <div 
-                key={index}  
-                className={styles.skillCard}
-                style={{opacity: selectedSkill === skill.category ? 0: 1}}
-                onMouseEnter={() => setSelectedSkill(skill.category)}
-                onMouseLeave={() => setSelectedSkill(null)}
-              >
-                <Image alt={`${skill.category} Skill`} src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
-               <div className={styles.skillCardLabelContainer}>
-                <p className={roboto.className}>{skill.category}</p>
-               </div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.skillCardsOpen}>
-            {skills.map((item,index) => (
-              <div style={{opacity: selectedSkill === item.category ? 1: 0}}   key={index} className={styles.skillCardOpen}>
-                <div className={styles.skillCardOpenInnerWrapper}>
-                  <h3 className={roboto.className}>{item.category}</h3>
-                  {item.subCategories.map((subCategory,index) => (
-                    <div key={index} className={styles.skillCardGroup}>
-                      <h4 className={roboto.className}>{subCategory.title}</h4>
-                      <p className={roboto.className}>{subCategory.skills.join(", ")}</p>
+              <div key={index}  className={styles.skillCardBox}>
+                <div className={styles.skillCard}>
+                  <div 
+                    className={styles.skillCardFront}
+                  >
+                    <Image alt={`${skill.category} Skill`} src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
+                    <div className={styles.skillCardFrontLabelContainer}>
+                      <p className={roboto.className}>{skill.category}</p>
                     </div>
-                  ))}
+                  </div>
+                  <div   key={index} className={styles.skillCardBack}>
+                    <div className={styles.skillCardBackInnerWrapper}>
+                      <h3 className={roboto.className}>{skill.category}</h3>
+                      {skill.subCategories.map((subCategory,index) => (
+                        <div key={index} className={styles.skillCardBackGroup}>
+                          <h4 className={roboto.className}>{subCategory.title}</h4>
+                          <p className={roboto.className}>{subCategory.skills.join(", ")}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -338,7 +333,7 @@ export default function Home() {
           </div>
         </section>
         <section ref={contactRef} className={styles.section} id="contact">
-          <div className="contact-col-2">
+          <div className="contact-col-1">
             <h2 className={robotoSlab.className}>
               Let's build something AWESOME!
             </h2>
@@ -364,7 +359,7 @@ export default function Home() {
                 <textarea className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" ></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button><span className={roboto.className}>Send your message</span></button>
+                <button className={styles.formSubmitButtons}><span className={roboto.className}>Send your message</span></button>
               </div>
             </form>
           </div>

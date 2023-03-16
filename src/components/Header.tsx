@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/Link'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Header.module.css'
 import { roboto, lobster } from '../fonts'
 import { MutableRefObject } from 'react'
 import CloseButton from './svg/CloseButton'
@@ -59,14 +59,18 @@ const Header: React.FC<Props> = ({ sectionRefs }) => {
   
   return(
     <header>
-    <div onClick={() => setNavbarVisible((visible) => !visible)} className={styles.closeButtonContainer}>
+    <div onClick={() => {
+      setNavbarVisible((visible) => !visible)
+    }} 
+    className={`${styles.closeButtonContainer}`}
+    >
       {navbarVisible ? (
         <CloseButton/>
       ):(
-        <HamburgerMenu />
+          <HamburgerMenu />
       )}
     </div>
-    <nav style={{display: navbarVisible ? "block": "none"}} className={styles.nav}>
+    <nav style={{display: navbarVisible ? "block": "none"}} className={`${styles.nav}`}>
       <ul className={styles.links}>
         <li className={`${styles.logo} ${lobster.className}`}>
           <Link href="/">
