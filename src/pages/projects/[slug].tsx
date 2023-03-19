@@ -1,10 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import Script from 'next/script'
 import styles from '@/styles/Home.module.css'
-import CarretRight from '../../../public/images/projects/details/carret_right.png'
-import { Header, Footer,Head,ChevronRight } from '@/components'
+import { Footer,Head,ChevronRight } from '@/components'
 import { robotoSlab, roboto } from '@/fonts' // <-- import styles to be used/ <-- import styles to be used
 
 

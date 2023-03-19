@@ -341,7 +341,7 @@
 }
 
 
- @media only screen and (max-width: 1119px){
+ @media only screen and (max-width: 768px){
     .main{
         width: 100%;
     }
@@ -349,17 +349,28 @@
         height: auto;
     }
     .skillCards{
-        background-color: red;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         /* display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center; */
+        margin-bottom: 20px;
     } 
+    
+    .skillCardBox{
+        width: 100%;
+    }
 
     .skillCard,.skillCardFront, .skillCardBack{
         width: 100%;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .skillCardBack{
+        top: -100vh;
     }
 
 
@@ -379,6 +390,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
     }
     
 
@@ -407,6 +419,14 @@
     .form{
         width: 100%;
         height: auto;
+    }
+
+    .contactCol2{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 100%;
     }
 
     .formGroup button{

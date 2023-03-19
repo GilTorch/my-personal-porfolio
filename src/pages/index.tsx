@@ -224,8 +224,24 @@ export default function Home() {
   const certificationsRef = useRef(null)
   const contactRef = useRef(null)
   const [skills, setSkills]  = useState(skillsData)
-  const [selectedSkill, setSelectedSkill] = useState<string | null>(null)
-  
+  const [onMobile, setOnMobile] = useState<boolean>(false)
+
+
+  useEffect(() =>{
+    const resizeCallBack = () => {
+        setOnMobile(window.innerWidth <= 768)
+    }
+
+    window.addEventListener("resize",resizeCallBack)
+    resizeCallBack()
+
+    return () => {
+      window.removeEventListener("resize", resizeCallBack)
+    }
+   },[])
+
+ 
+
   return (
     <>
       <Head />
@@ -237,6 +253,7 @@ export default function Home() {
           certificationsRef,
           contactRef,
         ]}
+        onMobile={onMobile}
       />
       <main className={styles.main}>
         <section ref={bioRef} className={styles.section} id="bio">
@@ -263,19 +280,7 @@ export default function Home() {
            </div>
         </section>
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
-          <h2 className={robotoSlab.className}>Expertise & Skills <span className={`${roboto.className} ${styles.hint}`}>(Hover on the skill category to see skills)</span></h2>
-          {/* <div className={styles.flipCard}>
-            <div className={styles.flipCardInner}>
-              <div className={styles.flipCardFront}>
-                <Image width={300} height={300} src={WebDevImage} alt="Avatar" />
-              </div>
-              <div className={styles.flipCardBack}>
-                <h1>John Doe</h1> 
-                <p>Architect & Engineer</p> 
-                <p>We love that guy</p>
-              </div>
-            </div>
-          </div> */}
+          <h2 className={robotoSlab.className}>Expertise & Skills <span className={`${roboto.className} ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
           <div className={styles.skillCards}>
             {skills.map((skill,index) => (
               <div key={index}  className={styles.skillCardBox}>
@@ -333,12 +338,12 @@ export default function Home() {
           </div>
         </section>
         <section ref={contactRef} className={styles.section} id="contact">
-          <div className="contact-col-1">
+          <div className={styles.contactCol1}>
             <h2 className={robotoSlab.className}>
               Let's build something AWESOME!
             </h2>
           </div>
-          <div className="contact-col-2">
+          <div className={styles.contactCol2}>
             <form className={`${styles.form} ${roboto.className}`}>
               <h3 className={`${roboto.className} ${styles.formTitle}`}>
                 Drop me a Message

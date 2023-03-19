@@ -8,10 +8,11 @@ import HamburgerMenu from './svg/Hamburger'
 
 
 type Props = {
-  sectionRefs: Array<MutableRefObject<HTMLDivElement>>
+  sectionRefs: Array<MutableRefObject<HTMLDivElement>>;
+  onMobile: boolean
 }
 
-const Header: React.FC<Props> = ({ sectionRefs }) => {
+const Header: React.FC<Props> = ({ sectionRefs, onMobile }) => {
 
   const [navbarVisible, setNavbarVisible] = useState(true)
 
@@ -45,32 +46,29 @@ const Header: React.FC<Props> = ({ sectionRefs }) => {
   }
 
   useEffect(() =>{
-    window.addEventListener("resize", resize);
-    resize();
-},[])
-
-  const resize = () => {
-    const greaterThanMobile =  window.innerWidth <= 1119
-    if(greaterThanMobile){
-      setNavbarVisible(true)
-    }
-  }
+      console.log("Mobile", onMobile)
+      setNavbarVisible(!onMobile)
+},[onMobile])
 
   
   return(
     <header>
-    <div onClick={() => {
-      setNavbarVisible((visible) => !visible)
-    }} 
-    className={`${styles.closeButtonContainer}`}
-    >
-      {navbarVisible ? (
-        <CloseButton/>
-      ):(
-          <HamburgerMenu />
-      )}
-    </div>
-    <nav style={{display: navbarVisible ? "block": "none"}} className={`${styles.nav}`}>
+      {
+        onMobile && (
+          <div onClick={() => {
+            setNavbarVisible((visible) => !visible)
+          }} 
+          className={`${styles.closeButtonContainer}`}
+          >
+            {navbarVisible ? (
+              <CloseButton/>
+            ):(
+                <HamburgerMenu />
+            )}
+          </div>
+        )
+      }
+    <nav style={{display: navbarVisible ? "block" : "none"}} className={`${styles.nav} slide-up `}>
       <ul className={styles.links}>
         <li className={`${styles.logo} ${lobster.className}`}>
           <Link href="/">

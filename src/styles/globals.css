@@ -148,7 +148,7 @@ main{
 
 
 @media only screen and (max-width: 1119px) {
-    
+
   h1 {
     font-size: 3rem;
     line-height: 60px;
@@ -179,6 +179,10 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .form{
+    width: 100%;
   }
   
 
