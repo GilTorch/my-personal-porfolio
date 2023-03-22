@@ -225,7 +225,7 @@ export default function Home() {
   const contactRef = useRef(null)
   const [skills, setSkills]  = useState(skillsData)
   const [onMobile, setOnMobile] = useState<boolean>(false)
-
+  const [contactFormData, setContactFormData] = useState<{email: string; name: string; message: string}>({email: "",name: "", message: ""})
 
   useEffect(() =>{
     const resizeCallBack = () => {
@@ -240,6 +240,31 @@ export default function Home() {
     }
    },[])
 
+
+   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  
+    const name = event.target.name;
+    const value = event.target.value;
+    const newContactFormData = {...contactFormData}
+    newContactFormData[name] = value
+    console.log(newContactFormData)
+    setContactFormData(newContactFormData)
+   }
+
+   const handleSubmit = (e) => { 
+
+    e.preventDefault()
+
+
+    fetch('http://localhost:3000/api/contact',{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(contactFormData)
+    })
+
+   }
  
 
   return (
@@ -353,18 +378,18 @@ export default function Home() {
               </p>
               <div className={styles.formGroup}>
                 <label className={`${roboto.className} ${styles.label}`}>Your name</label>
-                <input placeholder='Ex: John Doe' className={styles.name} name="name" />
+                <input onChange={handleChange} placeholder='Ex: John Doe' className={styles.name} name="name" required/>
               </div>
               <div className={styles.formGroup}>
                 <label className={`${roboto.className} ${styles.label}`}>Email address</label>
-                <input placeholder='Ex: john@doe.com' className={styles.email} type="email" />
+                <input onChange={handleChange} placeholder='Ex: john@doe.com' className={styles.email} type="email" name="email" required/>
               </div>
               <div className={styles.formGroup}>
                 <label className={`${roboto.className} ${styles.label}`}>Your message</label>
-                <textarea className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" ></textarea>
+                <textarea onChange={handleChange} className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button className={styles.formSubmitButtons}><span className={roboto.className}>Send your message</span></button>
+                <button type="submit" onClick={handleSubmit} className={styles.formSubmitButtons}><span className={roboto.className}>Send your message</span></button>
               </div>
             </form>
           </div>
