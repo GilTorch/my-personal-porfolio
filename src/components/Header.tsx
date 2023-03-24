@@ -8,7 +8,7 @@ import HamburgerMenu from './svg/Hamburger'
 
 
 type Props = {
-  sectionRefs: Array<MutableRefObject<HTMLDivElement>>;
+  sectionRefs: Array<MutableRefObject<null>>;
   onMobile: boolean
 }
 
@@ -46,7 +46,6 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile }) => {
   }
 
   useEffect(() =>{
-      console.log("Mobile", onMobile)
       setNavbarVisible(!onMobile)
 },[onMobile])
 

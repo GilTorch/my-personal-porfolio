@@ -44,13 +44,13 @@ const sendMail = async ({ email, name, message }: Email) => {
       refreshToken: REFRESH_TOKEN
     },
   });
-
+  console.log(`Email: ${email}`)
   const mailOptions = {
     from: `${name} <${email}>`,
     to: "infotorch2014@gmail.com",
-    subject: "Message From Your Portfolio",
-    text: message,
-    // html: "",
+    subject: "Message From Your Portfolio Website",
+    text: `From: ${name} (${email}) ${message}`,
+    html: `From: <i>${name} (${email})  <br>-------------------<br> <b>${message}</b>`,
   }
 
   // send mail with defined transport object
@@ -71,7 +71,6 @@ const sendMail = async ({ email, name, message }: Email) => {
 
   if(req.method === "POST"){
     const { name, message, email } = req.body
-    console.log(`REQ BODY :${JSON.stringify(req.body)}`)
   
     if(name && message && email ){
       try {

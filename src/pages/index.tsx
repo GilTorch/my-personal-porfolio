@@ -18,6 +18,12 @@ import FlatironSchoolCertificationImage from '../../public/images/certifications
 import { Header, Footer, Head } from '@/components'
 import { roboto, robotoSlab } from '../fonts'
 
+type Email = {
+  email: string;
+  name: string;
+  message: string;
+}
+
 const skillsData = [
   {
     category: "Web Skills",
@@ -225,8 +231,9 @@ export default function Home() {
   const contactRef = useRef(null)
   const [skills, setSkills]  = useState(skillsData)
   const [onMobile, setOnMobile] = useState<boolean>(false)
-  const [contactFormData, setContactFormData] = useState<{email: string; name: string; message: string}>({email: "",name: "", message: ""})
-
+  const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
+  const [formSubmitLoading, setFormSubmitLoading] = useState(false)
+  
   useEffect(() =>{
     const resizeCallBack = () => {
         setOnMobile(window.innerWidth <= 768)
@@ -251,18 +258,23 @@ export default function Home() {
     setContactFormData(newContactFormData)
    }
 
-   const handleSubmit = (e) => { 
+   const onSubmit = async (e) => { 
 
     e.preventDefault()
 
-
-    fetch('http://localhost:3000/api/contact',{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(contactFormData)
-    })
+    try {
+      setFormSubmitLoading(true)
+      await fetch('http://localhost:3000/api/contact',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(contactFormData)
+      })
+      setFormSubmitLoading(false)
+    }catch(e){
+      setFormSubmitLoading(false)
+    }
 
    }
  
@@ -369,7 +381,7 @@ export default function Home() {
             </h2>
           </div>
           <div className={styles.contactCol2}>
-            <form className={`${styles.form} ${roboto.className}`}>
+            <form onSubmit={onSubmit} className={`${styles.form} ${roboto.className}`}>
               <h3 className={`${roboto.className} ${styles.formTitle}`}>
                 Drop me a Message
               </h3>
@@ -389,7 +401,7 @@ export default function Home() {
                 <textarea onChange={handleChange} className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button type="submit" onClick={handleSubmit} className={styles.formSubmitButtons}><span className={roboto.className}>Send your message</span></button>
+                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span className={roboto.className}>Send{formSubmitLoading && "ing"} your message{formSubmitLoading && "..."}</span></button>
               </div>
             </form>
           </div>
