@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <Head title="Project Details"/>
       <main className={`${styles.projectDetailsSection} ${styles.main}`}>
-        <Script src="https://kit.fontawesome.com/a57b2bf495.js" crossorigin="anonymous" async/>
+        <Script src="https://kit.fontawesome.com/a57b2bf495.js" async/>
         <div className={styles.projectDetailsInner}>
           <section className={styles.section}>
             <div className={styles.projectDetailsSectionInner}>
