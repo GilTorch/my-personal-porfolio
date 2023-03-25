@@ -13,8 +13,6 @@ type Email = {
   message: string;
 }
 
-
-
 export default function Home() {
 
   const bioRef = useRef(null)
@@ -22,7 +20,6 @@ export default function Home() {
   const portfolioRef = useRef(null)
   const certificationsRef = useRef(null)
   const contactRef = useRef(null)
-  const [skills, setSkills]  = useState(skillsData)
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
   const [formSubmitLoading, setFormSubmitLoading] = useState(false)
@@ -112,7 +109,7 @@ export default function Home() {
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
           <h2 className={robotoSlab.className}>Expertise & Skills <span className={`${roboto.className} ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
           <div className={styles.skillCards}>
-            {skills.map((skill,index) => (
+            {skillsData.map((skill,index) => (
               <div key={index}  className={styles.skillCardBox}>
                 <div className={styles.skillCard}>
                   <div 
