@@ -55,7 +55,7 @@ export default function Home() {
 
     try {
       setFormSubmitLoading(true)
-      await fetch(`/api/contact`,{
+      await fetch(`http://locahost:3000/api/contact`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
