@@ -7,6 +7,8 @@ import { Header, Footer, Head } from '@/components'
 import { roboto, robotoSlab } from '@/fonts'
 import { skillsData, projects, certifications } from '@/utils/data'
 
+const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN
+
 type Email = {
   email: string;
   name: string;
@@ -46,7 +48,6 @@ export default function Home() {
     const value = event.target.value;
     const newContactFormData = {...contactFormData}
     newContactFormData[name] = value
-    console.log(newContactFormData)
     setContactFormData(newContactFormData)
    }
 
@@ -56,7 +57,7 @@ export default function Home() {
 
     try {
       setFormSubmitLoading(true)
-      await fetch('http://localhost:3000/api/contact',{
+      await fetch(`${DOMAIN}/api/contact`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json"
