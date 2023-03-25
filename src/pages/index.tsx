@@ -23,7 +23,8 @@ export default function Home() {
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
   const [formSubmitLoading, setFormSubmitLoading] = useState(false)
-  
+  const [FormMessageSent, setFormMessageSent] = useState(false)
+
   useEffect(() =>{
     const resizeCallBack = () => {
         setOnMobile(window.innerWidth <= 768)
@@ -39,7 +40,7 @@ export default function Home() {
 
 
    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-  
+    setFormMessageSent(false)
     const name = event.target.name;
     const value = event.target.value;
     const newContactFormData = {...contactFormData}
@@ -61,6 +62,7 @@ export default function Home() {
         },
         body: JSON.stringify(contactFormData)
       })
+      setFormMessageSent(true)
       setFormSubmitLoading(false)
     }catch(e){
       setFormSubmitLoading(false)
@@ -68,6 +70,19 @@ export default function Home() {
 
    }
  
+  const renderSubmitButtonLabel = () => {
+    let label = "Send your message"
+
+    if(formSubmitLoading){
+      label = "Sending your message..."
+    } 
+
+    if(FormMessageSent){
+      label = "Sent!"
+    }
+
+    return label
+  }
 
   return (
     <>
@@ -191,7 +206,7 @@ export default function Home() {
                 <textarea onChange={handleChange} className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span className={roboto.className}>Send{formSubmitLoading && "ing"} your message{formSubmitLoading && "..."}</span></button>
+                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span className={roboto.className}>{renderSubmitButtonLabel()}</span></button>
               </div>
             </form>
           </div>
