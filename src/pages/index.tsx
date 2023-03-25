@@ -15,15 +15,16 @@ type Email = {
 
 export default function Home() {
 
-  const bioRef = useRef(null)
-  const expertiseAndSkillsRef = useRef(null)
-  const portfolioRef = useRef(null)
-  const certificationsRef = useRef(null)
-  const contactRef = useRef(null)
+  const bioRef = useRef<HTMLDivElement>(null)
+  const expertiseAndSkillsRef = useRef<HTMLDivElement>(null)
+  const portfolioRef = useRef<HTMLDivElement>(null)
+  const certificationsRef = useRef<HTMLDivElement>(null)
+  const contactRef = useRef<HTMLDivElement>(null)
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
   const [formSubmitLoading, setFormSubmitLoading] = useState(false)
   const [FormMessageSent, setFormMessageSent] = useState(false)
+  const [profileImageContainerKey, setProfileImageContainerKey] = useState(0)
 
   useEffect(() =>{
     const resizeCallBack = () => {
@@ -41,7 +42,7 @@ export default function Home() {
 
    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormMessageSent(false)
-    const name = event.target.name;
+    const name = event.target.name as keyof Email;
     const value = event.target.value;
     const newContactFormData = {...contactFormData}
     newContactFormData[name] = value
@@ -49,7 +50,7 @@ export default function Home() {
     setContactFormData(newContactFormData)
    }
 
-   const onSubmit = async (e) => { 
+   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
 
     e.preventDefault()
 
@@ -84,6 +85,10 @@ export default function Home() {
     return label
   }
 
+  const onBioLinkPressed = () => {
+    setProfileImageContainerKey(Math.random())
+  }
+
   return (
     <>
       <Head />
@@ -95,12 +100,13 @@ export default function Home() {
           certificationsRef,
           contactRef,
         ]}
+        onBioLinkPressed={onBioLinkPressed}
         onMobile={onMobile}
       />
       <main className={styles.main}>
         <section ref={bioRef} className={styles.section} id="bio">
           <div className={styles.bioSectionCol1}>
-            <div className={`${styles.profileImageContainer}`}>
+            <div key={profileImageContainerKey} className={`${styles.profileImageContainer}`}>
               <Image  alt="Gilbert Torchon" src={ProfilePicImage} style={{objectFit: 'cover'}} fill/>
             </div>
           </div>
@@ -109,7 +115,15 @@ export default function Home() {
               My name is Gilbert Torchon
             </h1>
             <p className={`${roboto.className} ${styles.bioParagraph}`}>
-              I am an experienced Software Developer with a bachelor's degree in Computer Science. With over 4 years of professional experience in Web and Mobile Development (mostly React and React Native), I have sharpened my skills through boot camps and research. After getting my degree, I was certified in Front End Development by Freecodecamp which led to my first job as a Software Developer. As part of a training program in that job, I was certified by Flatiron School as a Full Stack Web Developer. Because I did really well during my own training, I was chosen to assist my colleagues in their own training. Later on, I self-trained in React Native and lead a team into developing a social mobile media app for students. Fast-forward to today, I joined BairesDev, a nearshore outsourcing company. I became a core team member in the mobile app team of one of their clients, a FinTech company: Hello Alice.
+              I am an experienced Software Developer with a bachelor&apos;s degree in Computer Science. 
+              With over 4 years of professional experience in Web and Mobile Development (mostly React and React Native), 
+              I have sharpened my skills through boot camps and research. 
+              After getting my degree, I was certified in Front End Development by Freecodecamp which led to my first job 
+              as a Software Developer. As part of a training program in that job, 
+              I was certified by Flatiron School as a Full Stack Web Developer. Because I did really well during my own training, 
+              I was chosen to assist my colleagues in their own training. Later on, 
+              I self-trained in React Native and lead a team into developing 
+              a social mobile media app for students. Fast-forward to today, I joined BairesDev, a nearshore outsourcing company.
             </p>
             <div>
               <Link className={styles.icons} target="_blank" href="https://github.com/GilTorch?tab=repositories">
@@ -182,7 +196,7 @@ export default function Home() {
         <section ref={contactRef} className={styles.section} id="contact">
           <div className={styles.contactCol1}>
             <h2 className={robotoSlab.className}>
-              Let's build something AWESOME!
+              Let&apos;s build something AWESOME!
             </h2>
           </div>
           <div className={styles.contactCol2}>
@@ -191,7 +205,7 @@ export default function Home() {
                 Drop me a Message
               </h3>
               <p className={`${roboto.className} ${styles.formSubtitle}`}>
-                I'd LOVE to hear from you!
+                I&apos;&apos;d LOVE to hear from you!
               </p>
               <div className={styles.formGroup}>
                 <label className={`${roboto.className} ${styles.label}`}>Your name</label>

@@ -1,18 +1,24 @@
 import { useEffect, useState } from 'react'
-import Link from 'next/Link'
+import Link from 'next/link'
 import styles from '@/styles/Header.module.css'
 import { roboto, lobster } from '../fonts'
-import { MutableRefObject } from 'react'
+import { RefObject } from 'react'
 import CloseButton from './svg/CloseButton'
 import HamburgerMenu from './svg/Hamburger'
 
 
 type Props = {
-  sectionRefs: Array<MutableRefObject<null>>;
-  onMobile: boolean
+  sectionRefs: Array<RefObject<HTMLDivElement>>;
+  onMobile: boolean;
+  onBioLinkPressed: Function;
 }
 
-const Header: React.FC<Props> = ({ sectionRefs, onMobile }) => {
+type LinkData = {
+  label: string;
+  sectionRef: RefObject<HTMLDivElement>
+}
+
+const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) => {
 
   const [navbarVisible, setNavbarVisible] = useState(true)
 
@@ -39,10 +45,19 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile }) => {
     }
   ]
 
-  const onLinkPressed = (sectionRef: MutableRefObject<HTMLDivElement>) => {
-    const yOffset = -120
-    const y =  sectionRef?.current?.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({top: y, behavior: "smooth"})
+  const onLinkPressed = (link: LinkData) => {
+    let yOffset = -325
+    if(link.label == "Bio"){
+        onBioLinkPressed()
+    }
+
+    const sectionRef = link.sectionRef
+
+    if(sectionRef && sectionRef.current){
+      const y =  sectionRef.current.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({top: y, behavior: "smooth"})
+    }
+
   }
 
   useEffect(() =>{
@@ -75,7 +90,7 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile }) => {
           </Link>
         </li>
         {links.map((link,index) => (
-          <li key={index} className={`${roboto.className} ${styles.link}`} onClick={() => onLinkPressed(link.sectionRef)}>
+          <li key={index} className={`${roboto.className} ${styles.link}`} onClick={() => onLinkPressed(link)}>
             {link.label}
           </li>
         ))}

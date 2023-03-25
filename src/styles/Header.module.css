@@ -93,7 +93,7 @@
 
 
     .nav{
-        height: auto;
+        height: 300px;
         animation: slideDown;
         animation-duration:  0.5s;
     }

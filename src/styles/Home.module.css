@@ -3,6 +3,18 @@
 /** Bio **/
 
 
+@keyframes moveIn{
+    from {
+        position: relative;
+        left: -100vh; 
+    }
+
+    to {
+        position: relative;
+        left: 0;
+    }
+}
+
 .main{
     width: 71.04%;
     margin-left: auto;
@@ -17,6 +29,7 @@
     height: 252px;
     border-radius: 50%;
     overflow: hidden;
+    animation: moveIn 1s;
 }
 
 
@@ -349,6 +362,7 @@
  @media only screen and (max-width: 768px){
     .main{
         width: 100%;
+        margin-top: 300px;
     }
     .nav{
         height: auto;
