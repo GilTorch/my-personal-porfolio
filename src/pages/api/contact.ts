@@ -57,7 +57,7 @@ const sendMail = async ({ email, name, message }: Email) => {
   // send mail with defined transport object
   return transporter.sendMail(mailOptions,(error,info) => {
     if(error){
-      throw new Error(error)
+      console.error(JSON.stringify(error))
     }else{
       console.log(info.envelope)
       console.log("Message sent: %s ", info.messageId)
