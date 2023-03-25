@@ -2,31 +2,10 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Script from 'next/script'
 import styles from '@/styles/Home.module.css'
+import { allProjectDetails } from '@/utils/data'
 import { Footer,Head,ChevronRight } from '@/components'
 import { robotoSlab, roboto } from '@/fonts' // <-- import styles to be used/ <-- import styles to be used
 
-const allProjectDetails = [
-  {
-    title: "Kay Rapid",
-    slug: 'kay-rapid',
-    description: "Kay Rapid, is my first \"serious\" React/React Native project. It started as an idea that sparked in my head while I was looking for appartment to rent in Port-au-Prince, Haïti. Anybody living there knows how hard it is in the area. The population mostly speaks french and creole. I wanted to create an Haitian solution to an Haitian problem. So I gathered a team and we brainstorm for a long time to try to create the ideal product. Eventually, we managed to create an unfinished MVP with the trending tech at the time . The team that I gathered consisted in two developers and I managed to wear multiple hats in this project:",
-    roles: [
-      {
-        label: "Tech Stack",
-        description: "React Native, Apollo Client, React Navigation, GraphQL Yoga, Node JS, Express, Prisma"
-      },
-      {
-        label: "Leadership",
-        description: "Being the one that came up with the idea, I became the de factor leader. I basically planned the product meetings and led the standups"
-      },
-      {
-        label: "Full Stack Web and Mobile Developer",
-        description: "I worked as a React Native developer and also touched the backend when necessary"
-      },
-    ],
-    outcome: "The project had to stop because of lack of funding. I also lended my first full-time Full Stack Web and Mobile Developer job the same year."
-  }
-]
 
 export default function Home() {
 

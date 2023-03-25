@@ -3,20 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
-import BackendDevImage from '../../public/images/skill-cards/backend.jpg'
-import MobileDevImage from '../../public/images/skill-cards/mobile.jpg'
-import WebDevImage from '../../public/images/skill-cards/web.jpg'
-import OtherImage from '../../public/images/skill-cards/other.jpg'
-import KayRapidIImage from '../../public/images/projects/kay_rapid.png'
-import MetFeyVetImage from '../../public/images/projects/met_fey_vet.jpeg'
-import ScriptoRerumImage from '../../public/images/projects/scriptorerum.jpeg'
-import SmartPatientImage from '../../public/images/projects/smart_patient.png'
-import ToThePointImage from '../../public/images/projects/tothepoint.png'
-import HTNImage from '../../public/images/projects/haitian_television_network.png'
-import FreeCodeCampCertificationImage from '../../public/images/certifications/fcc_logo.jpeg'
-import FlatironSchoolCertificationImage from '../../public/images/certifications/flatiron_school.jpeg'
 import { Header, Footer, Head } from '@/components'
-import { roboto, robotoSlab } from '../fonts'
+import { roboto, robotoSlab } from '@/fonts'
+import { skillsData, projects, certifications } from '@/utils/data'
 
 type Email = {
   email: string;
@@ -24,203 +13,7 @@ type Email = {
   message: string;
 }
 
-const skillsData = [
-  {
-    category: "Web Skills",
-    backgroundImage: WebDevImage ,
-    subCategories: [
-      {
-        title: "Language(s) and Framework(s)",
-        skills: [
-          "Javascript", "NextJS", "ReactJS"
-        ]
-      },
-      {
-        title: "State Management",
-        skills: [
-          "Redux.js, React Context, Apollo Client"
-        ]
-      },
-      {
-        title: "Navigation",
-        skills: [
-          "React Router Dom"
-        ]
-      },
-      {
-        title: "Design System",
-        skills: [
-          "Boostrap, Material UI"
-        ]
-      },
-      {
-        title: "Unit Testing",
-        skills: [
-          "Jest, React Testing Library, React Test Renderer"
-        ]
-      }, 
-    ]
-  },
-  {
-    category: "Mobile Development Skills",
-    backgroundImage: MobileDevImage,
-    subCategories: [
-      {
-        title: "Language(s) and Framework(s)",
-        skills: [
-          "React Native", "Expo", "Swift"
-        ]
-      },
-      {
-        title: "State Management",
-        skills: [
-          "Redux.js, React Context, Apollo Client"
-        ]
-      },
-      {
-        title: "Navigation",
-        skills: [
-          "React Navigation"
-        ]
-      },
-      {
-        title: "Design System",
-        skills: [
-          "React Native Paper, Native Base"
-        ]
-      },
-      {
-        title: "Unit Testing",
-        skills: [
-          "Jest, React Native Testing Library, React Test Renderer"
-        ]
-      }, 
-    ]
-  },
-  {
-    category: "Backend Skills",
-    backgroundImage: BackendDevImage,
-    subCategories: [
-      {
-        title: "Language(s) and Framework(s)",
-        skills: [
-          "Javascript", "Ruby", "Ruby on Rails", "Node JS", "Express JS"
-        ]
-      },
-      {
-        title: "Web Services Architectures",
-        skills: [
-          "REST, GraphQL, SOAP"
-        ]
-      },
-      {
-        title: "Databases",
-        skills: [
-          "MySQL, PostgreSQL, MongoDB"
-        ]
-      },
-      {
-        title: "Deployment",
-        skills: [
-          "Heroku, Digital Ocean"
-        ]
-      },
-    ]
-  },
-  {
-    category: "Other Skills",
-    backgroundImage: OtherImage,
-    subCategories: [
-      {
-        title: "Graphic Design Tools",
-        skills: [
-          "Adobe Photoshop, Adobe Illustrator"
-        ]
-      },
-      {
-        title: "UX/UI",
-        skills: [
-          "Figma"
-        ]
-      },
-      {
-        title: "Project Management Tools",
-        skills: [
-          "Clickup, JIRA"
-        ]
-      },
-      {
-        title: "Project Management Framework",
-        skills: [
-          "SCRUM"
-        ]
-      },
-      {
-        title: "Version Control",
-        skills: [
-          "Git / Github"
-        ]
-      }, 
-      {
-        title: "CI / CD",
-        skills: [
-          "Github Actions"
-        ]
-      }, 
-    ]
-  },
-]
 
-
-const projects = [
-  {
-    previewImage: SmartPatientImage,
-    title: "Smart Patient",
-    slug: "smart-patient",
-    caption: "a medical app"
-  },
-  {
-    previewImage: ScriptoRerumImage,
-    title: "ScriptoRerum",
-    slug: "scriptorerum",
-    caption: "a mobile app for writers"
-  },
-  {
-    previewImage: MetFeyVetImage,
-    title: "Mèt Fèy Vèt",
-    slug: "met-fey-vet",
-    caption: "a portal for a local politician and activist in Haiti"
-  },
-  {
-    previewImage: HTNImage,
-    title: "Haitian Television Network",
-    slug: "htn-television-network",
-    caption: "a platform to post videos and watch videos posted by others and watch TV"
-  },
-  {
-    previewImage: KayRapidIImage,
-    title: "Kay Rapid",
-    slug: "kay-rapid",
-    caption: "a housing app that help finding a house to rent/buy in Haiti"
-  },
-  {
-    previewImage: ToThePointImage,
-    title: "ToThePoint",
-    slug: "to-the-point",
-    caption: "an social media for students"
-  },
-]
-
-const certifications = [
-  {
-    backgroundImage: FreeCodeCampCertificationImage,
-    title: "FreeCodeCamp Front End",
-  },
-  {
-    backgroundImage: FlatironSchoolCertificationImage,
-    title: "Flatiron Full Stack Web ",
-  }
-]
 
 export default function Home() {
 
@@ -248,7 +41,7 @@ export default function Home() {
    },[])
 
 
-   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   
     const name = event.target.name;
     const value = event.target.value;
