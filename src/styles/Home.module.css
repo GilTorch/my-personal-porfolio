@@ -183,19 +183,22 @@
 .portfolioProject{
     width: 320px;
     height: 300px;
-    margin-right: 40px;
-    margin-bottom: 40px;
+    margin-right: 50px;
+    margin-bottom: 80px;
     cursor: pointer;
+}
+
+.portfolioImageContainer:hover {
+    background-color: var(--gold);
+    transition: 1s;
 }
 
 
 .portfolioImageContainer{
-    background-color: green;
-    position: relative;
-    width: 320px;
-    height: 268px;
-    margin-bottom: 10px;
+    background-color: rgba(255,255,255,0.1);
+    position: relative; 
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .projectTitle{

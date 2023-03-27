@@ -2,12 +2,20 @@ import BackendDevImage from '../../public/images/skill-cards/backend.jpg'
 import MobileDevImage from '../../public/images/skill-cards/mobile.jpg'
 import WebDevImage from '../../public/images/skill-cards/web.jpg'
 import OtherImage from '../../public/images/skill-cards/other.jpg'
-import KayRapidIImage from '../../public/images/projects/kay_rapid.png'
-import MetFeyVetImage from '../../public/images/projects/met_fey_vet.jpeg'
-import ScriptoRerumImage from '../../public/images/projects/scriptorerum.jpeg'
-import SmartPatientImage from '../../public/images/projects/smart_patient.png'
-import ToThePointImage from '../../public/images/projects/tothepoint.png'
-import HTNImage from '../../public/images/projects/haitian_television_network.png'
+
+import HaitianTelevisionNetworkSVG from '../../public/svg/haitiantelevisionnetwork.svg'
+import KayRapidSVG from '../../public/svg/kayrapid.svg'
+import MetFeyVetSVG from '../../public/svg/metfeyvet.svg'
+import ScriptoRerumSVG from '../../public/svg/scriptorerum.svg'
+import SmartPatientSVG from '../../public/svg/smartpatient.svg'
+import ToThePointSVG from '../../public/svg/tothepoint.svg'
+
+// import KayRapidIImage from '../../public/images/projects/kay_rapid.png'
+// import MetFeyVetImage from '../../public/images/projects/met_fey_vet.png'
+// import ScriptoRerumImage from '../../public/images/projects/scriptorerum.jpeg'
+// import SmartPatientImage from '../../public/images/projects/smart_patient.png'
+// import ToThePointImage from '../../public/images/projects/tothepoint.png'
+// import HTNImage from '../../public/images/projects/haitian_television_network.png'
 import FreeCodeCampCertificationImage from '../../public/images/certifications/fcc_logo.jpeg'
 import FlatironSchoolCertificationImage from '../../public/images/certifications/flatiron_school.jpeg'
 
@@ -334,37 +342,37 @@ export const allProjectDetails = [
   
   export const projects = [
     {
-      previewImage: SmartPatientImage,
+      illustration: <SmartPatientSVG />,
       title: "Smart Patient",
       slug: "smartpatient",
       caption: "a medical app"
     },
     {
-      previewImage: ScriptoRerumImage,
+      illustration: <ScriptoRerumSVG />,
       title: "ScriptoRerum",
       slug: "scriptorerum",
       caption: "a mobile app for writers"
     },
     {
-      previewImage: MetFeyVetImage,
+      illustration: <MetFeyVetSVG />,
       title: "Mèt Fèy Vèt",
       slug: "metfeyvet",
       caption: "a portal for a local politician and activist in Haiti"
     },
     {
-      previewImage: HTNImage,
+      illustration: <HaitianTelevisionNetworkSVG />,
       title: "Haitian Television Network",
       slug: "haitiantelevisionnetwork",
       caption: "a platform to post videos and watch videos posted by others and watch TV"
     },
     {
-      previewImage: KayRapidIImage,
+      illustration: <KayRapidSVG />,
       title: "Kay Rapid",
       slug: "kayrapid",
       caption: "a housing app that help finding a house to rent/buy in Haiti"
     },
     {
-      previewImage: ToThePointImage,
+      illustration: <ToThePointSVG />,
       title: "ToThePoint",
       slug: "tothepoint",
       caption: "an social media for students"

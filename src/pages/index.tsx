@@ -4,7 +4,6 @@ import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
 import { Header, Footer, Head } from '@/components'
-import { roboto, robotoSlab } from '@/fonts'
 import { skillsData, projects, certifications } from '@/utils/data'
 
 type Email = {
@@ -171,8 +170,8 @@ export default function Home() {
             <div key={index}  className={styles.portfolioProject}>
               <div className={styles.portfolioImageContainer}>
                 <Link href={`/projects/${project.slug}`}>
-                  <Image alt="" src={project.previewImage} style={{ objectFit:'cover'}} fill/>
-                </Link>
+                  {project.illustration}
+                </Link> 
               </div>
               <p><span className={styles.projectTitle}>{project.title}</span>, {project.caption}</p>
             </div>

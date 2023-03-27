@@ -4,8 +4,7 @@ import Script from 'next/script'
 import styles from '@/styles/Home.module.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { allProjectDetails } from '@/utils/data'
-import { Footer,Head } from '@/components'
-import { robotoSlab, roboto } from '@/fonts' // <-- import styles to be used/ <-- import styles to be used
+import { Footer,Head } from '@/components'// <-- import styles to be used/ <-- import styles to be used
 
 
 export default function Home() {
