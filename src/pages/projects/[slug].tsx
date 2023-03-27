@@ -4,7 +4,7 @@ import Script from 'next/script'
 import styles from '@/styles/Home.module.css'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { allProjectDetails } from '@/utils/data'
-import { Footer,Head } from '@/components'// <-- import styles to be used/ <-- import styles to be used
+import { Footer,Head } from '@/components'
 
 
 export default function Home() {
@@ -28,19 +28,19 @@ export default function Home() {
                     <Link className={`${styles.chevronRight}`} href="/#portfolio">
                       <ArrowBackIosNewIcon />
                     </Link>
-                    <h1 className={`${styles.projectDetailsTitle} ${robotoSlab.className}`}>{project.title}</h1>
+                    <h1 className={styles.projectDetailsTitle}>{project.title}</h1>
                   </div>
-                  <div className={`${roboto.className} ${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                  <div className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                    {project.description}
                   </div>
                   {project.roles && project.roles.length > 0 && project.roles.map((projectRole,index) => (
-                      <div key={index} className={`${roboto.className} ${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                      <div key={index} className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                         <span className={styles.role}>{projectRole.label} </span>.- {projectRole.description}
                       </div>
                     )
                   )}
                   {project.outcome && (
-                    <div className={`${roboto.className} ${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                    <div className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                       <span className={styles.role}>Project Outcome</span>.- {project.outcome}
                     </div>
                   )}
