@@ -2,7 +2,6 @@
 
 /** Bio **/
 
-
 @keyframes moveIn{
     from {
         position: relative;
@@ -282,7 +281,14 @@
 
 /** project details **/
 
+.chevronRight{
+    text-decoration: none;
+    color: var(--gold);
+}
+
 .projectDetailsSectionInner{
+    text-align: justify;
+    /* background-color: red; */
     width: 100%;
     display: flex;
 }
@@ -304,7 +310,7 @@
 .projectDetailsTitle{
     width: 100%;
     height: 100%;
-    font-size: 60px;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -448,5 +454,9 @@
 
     .formGroup button{
         width: 100%;
+    }
+
+    .projectDetailsSection{
+        width: 92%;
     }
 } 

@@ -2,8 +2,9 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Script from 'next/script'
 import styles from '@/styles/Home.module.css'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { allProjectDetails } from '@/utils/data'
-import { Footer,Head,ChevronRight } from '@/components'
+import { Footer,Head } from '@/components'
 import { robotoSlab, roboto } from '@/fonts' // <-- import styles to be used/ <-- import styles to be used
 
 
@@ -17,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head title="Project Details"/>
-      <main className={`${styles.projectDetailsSection} ${styles.main}`}>
+      <main className={`${styles.main} ${styles.projectDetailsSection}`}>
         <Script src="https://kit.fontawesome.com/a57b2bf495.js" async/>
         <div className={styles.projectDetailsInner}>
           <section className={styles.section}>
@@ -25,8 +26,8 @@ export default function Home() {
               <div className={styles.projectDetailsCol2}>
                 <div className={styles.projectDetailsCol2Inner}>
                   <div className={styles.projectDetailsTitleContainer}>
-                    <Link href="/#portfolio">
-                      <ChevronRight />
+                    <Link className={`${styles.chevronRight}`} href="/#portfolio">
+                      <ArrowBackIosNewIcon />
                     </Link>
                     <h1 className={`${styles.projectDetailsTitle} ${robotoSlab.className}`}>{project.title}</h1>
                   </div>

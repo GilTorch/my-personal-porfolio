@@ -1,9 +1,4 @@
-import { Roboto, Roboto_Slab, Lobster } from '@next/font/google'
-
-export const lobster = Lobster({
-    weight: '400',
-    subsets: ['latin']
-  })
+import { Roboto, Roboto_Slab } from '@next/font/google'
   
 export const roboto = Roboto({
     weight: ['400','500','700'],

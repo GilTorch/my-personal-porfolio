@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next/link' 
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
 import { Header, Footer, Head } from '@/components'

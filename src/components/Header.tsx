@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import GilbertLogo from '@/components/svg/GilbertLogo'
 import styles from '@/styles/Header.module.css'
-import { roboto, lobster } from '../fonts'
+import { roboto } from '../fonts'
 import { RefObject } from 'react'
-import CloseButton from './svg/CloseButton'
-import HamburgerMenu from './svg/Hamburger'
+import { Menu, Close } from '@mui/icons-material'
 
 
 type Props = {
@@ -75,20 +75,20 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) =>
           className={`${styles.closeButtonContainer}`}
           >
             {navbarVisible ? (
-              <CloseButton/>
+              <Close htmlColor="#EFC900"/>
             ):(
-                <HamburgerMenu />
+              <Menu htmlColor='#EFC900' />
             )}
           </div>
         )
       }
     <nav style={{display: navbarVisible ? "block" : "none"}} className={`${styles.nav} slide-up `}>
       <ul className={styles.links}>
-        <li className={`${styles.logo} ${lobster.className}`}>
-          <Link href="/">
-            Gilbert <span className={styles.logoCircle}>.</span>
-          </Link>
-        </li>
+        <div style={{width: '5%'}}>
+          <GilbertLogo />
+        </div>
+        {/* <div className={styles.logo}>
+        </div> */}
         {links.map((link,index) => (
           <li key={index} className={`${roboto.className} ${styles.link}`} onClick={() => onLinkPressed(link)}>
             {link.label}
