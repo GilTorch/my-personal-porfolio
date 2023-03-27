@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import GilbertLogo from '@/components/svg/GilbertLogo'
+import GilbertLogo from '../../public/svg/gilbert-logo.svg'
 import styles from '@/styles/Header.module.css'
 import { RefObject } from 'react'
 import { Menu, Close } from '@mui/icons-material'
