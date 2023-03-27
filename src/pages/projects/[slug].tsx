@@ -30,19 +30,19 @@ export default function Home() {
                     </Link>
                     <h1 className={styles.projectDetailsTitle}>{project.title}</h1>
                   </div>
-                  <div className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                  <p className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                    {project.description}
-                  </div>
+                  </p>
                   {project.roles && project.roles.length > 0 && project.roles.map((projectRole,index) => (
-                      <div key={index} className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                      <p key={index} className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                         <span className={styles.role}>{projectRole.label} </span>.- {projectRole.description}
-                      </div>
+                      </p>
                     )
                   )}
                   {project.outcome && (
-                    <div className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
+                    <p className={`${styles.projectDetailsPragraph} ${styles.projectDescription}`}>
                       <span className={styles.role}>Project Outcome</span>.- {project.outcome}
-                    </div>
+                    </p>
                   )}
                 </div>
               </div>

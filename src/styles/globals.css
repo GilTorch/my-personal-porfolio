@@ -70,6 +70,7 @@ html,body{
 
 body{
   background-color: var(--mainBackgroundColor);
+  font-family: Roboto;
 }
 
 h1{
