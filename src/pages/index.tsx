@@ -110,10 +110,10 @@ export default function Home() {
             </div>
           </div>
            <div className={styles.bioSectionCol2}>
-            <h1 className={robotoSlab.className}>
+            <h1>
               My name is Gilbert Torchon
             </h1>
-            <p className={`${roboto.className} ${styles.bioParagraph}`}>
+            <p className={styles.bioParagraph}>
               I am an experienced Software Developer with a bachelor&apos;s degree in Computer Science. 
               With over 4 years of professional experience in Web and Mobile Development (mostly React and React Native), 
               I have sharpened my skills through boot camps and research. 
@@ -135,7 +135,7 @@ export default function Home() {
            </div>
         </section>
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
-          <h2 className={robotoSlab.className}>Expertise & Skills <span className={`${roboto.className} ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
+          <h2 className={robotoSlab.className}>Expertise & Skills <span className={` ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
           <div className={styles.skillCards}>
             {skillsData.map((skill,index) => (
               <div key={index}  className={styles.skillCardBox}>
@@ -145,16 +145,16 @@ export default function Home() {
                   >
                     <Image alt={`${skill.category} Skill`} src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
                     <div className={styles.skillCardFrontLabelContainer}>
-                      <p className={roboto.className}>{skill.category}</p>
+                      <p>{skill.category}</p>
                     </div>
                   </div>
                   <div   key={index} className={styles.skillCardBack}>
                     <div className={styles.skillCardBackInnerWrapper}>
-                      <h3 className={roboto.className}>{skill.category}</h3>
+                      <h3>{skill.category}</h3>
                       {skill.subCategories.map((subCategory,index) => (
                         <div key={index} className={styles.skillCardBackGroup}>
-                          <h4 className={roboto.className}>{subCategory.title}</h4>
-                          <p className={roboto.className}>{subCategory.skills.join(", ")}</p>
+                          <h4>{subCategory.title}</h4>
+                          <p>{subCategory.skills.join(", ")}</p>
                         </div>
                       ))}
                     </div>
@@ -174,7 +174,7 @@ export default function Home() {
                   <Image alt="" src={project.previewImage} style={{ objectFit:'cover'}} fill/>
                 </Link>
               </div>
-              <p className={roboto.className}><span className={styles.projectTitle}>{project.title}</span>, {project.caption}</p>
+              <p><span className={styles.projectTitle}>{project.title}</span>, {project.caption}</p>
             </div>
           ))}
           </div>
@@ -187,7 +187,7 @@ export default function Home() {
                 <div className={styles.certificationImageContainer}>
                   <Image alt={`${certification.title} Certification`} src={certification.backgroundImage} style={{objectFit:"cover"}} fill/>
                 </div>
-                <p className={roboto.className}>{certification.title}</p>
+                <p>{certification.title}</p>
               </div>
             ))}
           </div>
@@ -199,27 +199,27 @@ export default function Home() {
             </h2>
           </div>
           <div className={styles.contactCol2}>
-            <form onSubmit={onSubmit} className={`${styles.form} ${roboto.className}`}>
-              <h3 className={`${roboto.className} ${styles.formTitle}`}>
+            <form onSubmit={onSubmit} className={`${styles.form} `}>
+              <h3 className={` ${styles.formTitle}`}>
                 Drop me a Message
               </h3>
-              <p className={`${roboto.className} ${styles.formSubtitle}`}>
+              <p className={` ${styles.formSubtitle}`}>
                 I&apos;&apos;d LOVE to hear from you!
               </p>
               <div className={styles.formGroup}>
-                <label className={`${roboto.className} ${styles.label}`}>Your name</label>
+                <label className={` ${styles.label}`}>Your name</label>
                 <input onChange={handleChange} placeholder='Ex: John Doe' className={styles.name} name="name" required/>
               </div>
               <div className={styles.formGroup}>
-                <label className={`${roboto.className} ${styles.label}`}>Email address</label>
+                <label className={` ${styles.label}`}>Email address</label>
                 <input onChange={handleChange} placeholder='Ex: john@doe.com' className={styles.email} type="email" name="email" required/>
               </div>
               <div className={styles.formGroup}>
-                <label className={`${roboto.className} ${styles.label}`}>Your message</label>
-                <textarea onChange={handleChange} className={`${roboto.className}`} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
+                <label className={` ${styles.label}`}>Your message</label>
+                <textarea onChange={handleChange} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span className={roboto.className}>{renderSubmitButtonLabel()}</span></button>
+                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span>{renderSubmitButtonLabel()}</span></button>
               </div>
             </form>
           </div>

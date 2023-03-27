@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import GilbertLogo from '@/components/svg/GilbertLogo'
 import styles from '@/styles/Header.module.css'
-import { roboto } from '../fonts'
 import { RefObject } from 'react'
 import { Menu, Close } from '@mui/icons-material'
 
@@ -84,19 +83,17 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) =>
       }
     <nav style={{display: navbarVisible ? "block" : "none"}} className={`${styles.nav} slide-up `}>
       <ul className={styles.links}>
-        <div style={{width: '5%'}}>
+        <Link href="/" className={styles.logo}>
           <GilbertLogo />
-        </div>
-        {/* <div className={styles.logo}>
-        </div> */}
+        </Link>
         {links.map((link,index) => (
-          <li key={index} className={`${roboto.className} ${styles.link}`} onClick={() => onLinkPressed(link)}>
+          <li key={index} className={styles.link} onClick={() => onLinkPressed(link)}>
             {link.label}
           </li>
         ))}
-        <li className={`${styles.resume} ${roboto.className}`}>
+        <li className={styles.resume}>
           <Link target="_blank" href="https://drive.google.com/file/d/1bHK7xjj9_oZpWoI1kta_4LiHRwTv4Qts/view?usp=share_link">
-          Resume
+           Resume
           </Link>
         </li>
       </ul>

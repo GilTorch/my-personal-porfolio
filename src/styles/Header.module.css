@@ -22,7 +22,7 @@
 
 
 .logo{
-    
+    width: 5%
 }
 
 /* .logo a{
@@ -47,6 +47,7 @@
 
 
 .link{
+    font-family: Roboto;
     display: inline-block;
     color: white;
     font-size: 16px;
@@ -59,7 +60,6 @@
     background-color: var(--gold);
     width: 14.66%;
     height: 50px;
-    margin-left: 8.9%;
     text-align: center;
     border: 3px solid var(--gold);
     box-sizing: border-box;
@@ -67,6 +67,8 @@
 }
 
 .resume a {
+    font-family: Roboto;
+    font-weight: bold;
     display: inline-block; 
     font-weight: 700;
     padding-top: 15.5px;

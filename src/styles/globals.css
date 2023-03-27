@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300&family=Roboto:ital,wght@0,100;0,500;1,100&display=swap');
+
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -70,6 +73,7 @@ body{
 }
 
 h1{
+  font-family: "Roboto Slab";
   color: var(--gold);
   font-size: 5em;
   font-weight: 200;
@@ -78,14 +82,21 @@ h1{
 }
 
 h2{
+  font-family: Roboto;
   color: var(--gold);
   font-weight: 200;
   font-size: 4em;
   margin-bottom: 41px;
 }
 
+input,textarea {
+  font-family: Roboto;
+}
+
 p{
+  font-family: Roboto;
   color: white;
+  font-weight: 100;
   font-size: 1em;
 }
 

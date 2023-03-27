@@ -245,6 +245,7 @@
 }
 
 .formTitle{
+    font-family: "Roboto Slab";
     font-size: 27px;
     font-weight: bold;
     color: white;
@@ -270,10 +271,13 @@
 }
 
 .label{
+    font-family: Roboto;
     display: block;
     color: white;
     margin-bottom: 10px;
 }
+
+
 
 .name,.email{
     color: white;
