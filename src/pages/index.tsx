@@ -135,7 +135,7 @@ export default function Home() {
            </div>
         </section>
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
-          <h2 className={robotoSlab.className}>Expertise & Skills <span className={` ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
+          <h2>Expertise & Skills <span className={` ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
           <div className={styles.skillCards}>
             {skillsData.map((skill,index) => (
               <div key={index}  className={styles.skillCardBox}>
@@ -165,7 +165,7 @@ export default function Home() {
           </div>
         </section>
         <section ref={portfolioRef} className={styles.section} id="portfolio">
-          <h2 className={robotoSlab.className}>My Portfolio</h2>
+          <h2 className={styles.portfolioProjectsTitle}>My Portfolio</h2>
           <div className={styles.portfolioProjects}>
           {projects.map((project,index) => (
             <div key={index}  className={styles.portfolioProject}>
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
         </section>
         <section ref={certificationsRef} className={styles.section} id="certifications">
-          <h2 className={robotoSlab.className}>Certifications</h2>
+          <h2>Certifications</h2>
           <div className={styles.certifications}>
             {certifications.map((certification,index) => (
               <div key={index} className={styles.certification}>
@@ -194,13 +194,13 @@ export default function Home() {
         </section>
         <section ref={contactRef} className={styles.section} id="contact">
           <div className={styles.contactCol1}>
-            <h2 className={robotoSlab.className}>
+            <h2 className={styles.contactSectionTitle}>
               Let&apos;s build something AWESOME!
             </h2>
           </div>
           <div className={styles.contactCol2}>
-            <form onSubmit={onSubmit} className={`${styles.form} `}>
-              <h3 className={` ${styles.formTitle}`}>
+            <form onSubmit={onSubmit} className={styles.form}>
+              <h3 className={styles.formTitle}>
                 Drop me a Message
               </h3>
               <p className={` ${styles.formSubtitle}`}>
