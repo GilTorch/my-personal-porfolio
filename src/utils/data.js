@@ -12,6 +12,9 @@ import ToThePointSVG from '../../public/svg/tothepoint.svg'
 import FreeCodeCampSVG from '../../public/svg/freecodecamp.svg'
 import FlatironSchoolSVG from '../../public/svg/flatironschool.svg'
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 export const allProjectDetails = [
     {
@@ -383,4 +386,19 @@ export const allProjectDetails = [
       illustration: <FlatironSchoolSVG />,
       title: "Flatiron Full Stack Web ",
     }
+  ]
+
+  export const socials = [
+    {
+      illustration: <LinkedInIcon htmlColor='#EFC900' fontSize="large" />,
+      link: 'https://www.linkedin.com/in/gilbert-torchon-22a9a1a4/',
+    },
+    {
+      illustration: <GitHubIcon htmlColor='#EFC900' fontSize="large"/>,
+      link: 'https://github.com/GilTorch',
+    },
+    {
+      illustration: <TwitterIcon htmlColor='#EFC900' fontSize="large"/>,
+      link: 'https://twitter.com/gilbert_4_real',
+    },
   ]

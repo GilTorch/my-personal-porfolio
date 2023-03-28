@@ -4,7 +4,7 @@ import Link from 'next/link'
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
 import { Header, Footer, Head } from '@/components'
-import { skillsData, projects, certifications } from '@/utils/data'
+import { skillsData, projects, certifications, socials } from '@/utils/data'
 
 type Email = {
   email: string;
@@ -22,7 +22,7 @@ export default function Home() {
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
   const [formSubmitLoading, setFormSubmitLoading] = useState(false)
-  const [FormMessageSent, setFormMessageSent] = useState(false)
+  const [formMessageSent, setFormMessageSent] = useState(false)
   const [profileImageContainerKey, setProfileImageContainerKey] = useState(0)
 
   useEffect(() =>{
@@ -76,7 +76,7 @@ export default function Home() {
       label = "Sending your message..."
     } 
 
-    if(FormMessageSent){
+    if(formMessageSent){
       label = "Sent!"
     }
 
@@ -124,12 +124,11 @@ export default function Home() {
               a social mobile media app for students. Fast-forward to today, I joined BairesDev, a nearshore outsourcing company.
             </p>
             <div>
-              <Link className={styles.icons} target="_blank" href="https://github.com/GilTorch?tab=repositories">
-                <Image alt="Linkedin logo" src="/icons/github.png" width="50" height="50" />
-              </Link>
-              <Link className={styles.icons} target="_blank" href="https://www.linkedin.com/in/gilbert-torchon-22a9a1a4/">
-                <Image alt="Linkedin logo" src="/icons/linkedin.png" width="50" height="50" />
-              </Link>
+              {socials.map((social,index) => (
+                <Link key={index} className={styles.icons} target="_blank" href="https://github.com/GilTorch?tab=repositories">
+                  {social.illustration}
+                </Link>
+              ))}
             </div>
            </div>
         </section>
