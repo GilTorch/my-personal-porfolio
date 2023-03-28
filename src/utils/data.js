@@ -9,15 +9,8 @@ import MetFeyVetSVG from '../../public/svg/metfeyvet.svg'
 import ScriptoRerumSVG from '../../public/svg/scriptorerum.svg'
 import SmartPatientSVG from '../../public/svg/smartpatient.svg'
 import ToThePointSVG from '../../public/svg/tothepoint.svg'
-
-// import KayRapidIImage from '../../public/images/projects/kay_rapid.png'
-// import MetFeyVetImage from '../../public/images/projects/met_fey_vet.png'
-// import ScriptoRerumImage from '../../public/images/projects/scriptorerum.jpeg'
-// import SmartPatientImage from '../../public/images/projects/smart_patient.png'
-// import ToThePointImage from '../../public/images/projects/tothepoint.png'
-// import HTNImage from '../../public/images/projects/haitian_television_network.png'
-import FreeCodeCampCertificationImage from '../../public/images/certifications/fcc_logo.jpeg'
-import FlatironSchoolCertificationImage from '../../public/images/certifications/flatiron_school.jpeg'
+import FreeCodeCampSVG from '../../public/svg/freecodecamp.svg'
+import FlatironSchoolSVG from '../../public/svg/flatironschool.svg'
 
 
 export const allProjectDetails = [
@@ -363,7 +356,7 @@ export const allProjectDetails = [
       illustration: <HaitianTelevisionNetworkSVG />,
       title: "Haitian Television Network",
       slug: "haitiantelevisionnetwork",
-      caption: "a platform to post videos and watch videos posted by others and watch TV"
+      caption: "a video platform"
     },
     {
       illustration: <KayRapidSVG />,
@@ -381,11 +374,13 @@ export const allProjectDetails = [
   
   export const certifications = [
     {
-      backgroundImage: FreeCodeCampCertificationImage,
+      illustration: <FreeCodeCampSVG />,
+      backgroundColor: "#2E6338",
       title: "FreeCodeCamp Front End",
     },
     {
-      backgroundImage: FlatironSchoolCertificationImage,
+      backgroundColor: "#11ABDF",
+      illustration: <FlatironSchoolSVG />,
       title: "Flatiron Full Stack Web ",
     }
   ]

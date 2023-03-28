@@ -183,8 +183,8 @@ export default function Home() {
           <div className={styles.certifications}>
             {certifications.map((certification,index) => (
               <div key={index} className={styles.certification}>
-                <div className={styles.certificationImageContainer}>
-                  <Image alt={`${certification.title} Certification`} src={certification.backgroundImage} style={{objectFit:"cover"}} fill/>
+                <div style={{backgroundColor: certification.backgroundColor}} className={styles.certificationImageContainer}>
+                    {certification.illustration}
                 </div>
                 <p>{certification.title}</p>
               </div>
@@ -202,7 +202,7 @@ export default function Home() {
               <h3 className={styles.formTitle}>
                 Drop me a Message
               </h3>
-              <p className={` ${styles.formSubtitle}`}>
+              <p className={styles.formSubtitle}>
                 I&apos;&apos;d LOVE to hear from you!
               </p>
               <div className={styles.formGroup}>

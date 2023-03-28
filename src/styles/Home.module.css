@@ -181,25 +181,38 @@
 }
 
 .portfolioProject{
-    width: 320px;
-    height: 300px;
+    width: 250px;
+    height: 230px;
     margin-right: 50px;
     margin-bottom: 100px;
     cursor: pointer;
 }
 
-.portfolioImageContainer:hover {
-    background-color: var(--gold);
-    transition: 1s;
+.portfolioImageContainer{
+    background-color: white;
+
 }
 
-
-.portfolioImageContainer{
-    background-color: rgba(255,255,255,0.1);
-    position: relative; 
+.portfolioImageContainer,.certificationImageContainer{
+    position: relative;
     overflow: hidden;
     margin-bottom: 14px;
 }
+
+.certificationImageContainer{
+    width: 250px;
+    height: 230px;
+}
+
+
+
+.certificationImageContainer:hover, .portfolioImageContainer:hover {
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  var(--gold) 0%, var(--gold) 100% );
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
 
 .portfolioProject p {
     line-height: 24px;
@@ -227,20 +240,12 @@
 }
 
 .certification{
-    width: 320px;
-    height: 300px;
+
     margin-right: 40px;
+    margin-bottom: 50px;
 }
 
 
-.certificationImageContainer{
-    background-color: green;
-    position: relative;
-    width: 320px;
-    height: 268px;
-    margin-bottom: 10px;
-    overflow: hidden;
-}
 
 /** FORM ***/
 
