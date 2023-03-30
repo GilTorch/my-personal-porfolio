@@ -264,8 +264,9 @@
     margin-top: 14px;
 }
 
-.name,.email{
+.formField{
     background-color: var(--formInputBackgroundColor);
+    color: white;
     height: 40px;
     display: block;
     width: 100%;
@@ -288,9 +289,7 @@
 
 
 
-.name,.email{
-    color: white;
-}
+
 
 /** project details **/
 

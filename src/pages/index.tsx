@@ -7,8 +7,7 @@ import { Header, Footer, Head, Button } from '@/components'
 import { skillsData, projects, certifications, socials } from '@/utils/data'
 
 type Email = {
-  email: string;
-  name: string;
+  subject: string;
   message: string;
 }
 
@@ -20,7 +19,7 @@ export default function Home() {
   const certificationsRef = useRef<HTMLDivElement>(null)
   const contactRef = useRef<HTMLDivElement>(null)
   const [onMobile, setOnMobile] = useState<boolean>(false)
-  const [contactFormData, setContactFormData] = useState<Email>({email: "",name: "", message: ""})
+  const [contactFormData, setContactFormData] = useState<Email>({ subject: '', message: ""})
   const [formSubmitLoading, setFormSubmitLoading] = useState(false)
   const [formMessageSent, setFormMessageSent] = useState(false)
   const [profileImageContainerKey, setProfileImageContainerKey] = useState(0)
@@ -49,24 +48,8 @@ export default function Home() {
    }
 
    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
-
     e.preventDefault()
-
-    try {
-      setFormSubmitLoading(true)
-      await fetch(`/api/contact`,{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(contactFormData)
-      })
-      setFormMessageSent(true)
-      setFormSubmitLoading(false)
-    }catch(e){
-      setFormSubmitLoading(false)
-    }
-
+    window.location.href=`mailto:infotorch2014@gmail.com?subject=${contactFormData.subject}&body=${contactFormData.message}`
    }
  
   const renderSubmitButtonLabel = () => {
@@ -197,7 +180,7 @@ export default function Home() {
             </h2>
           </div>
           <div className={styles.contactCol2}>
-            <form onSubmit={onSubmit} className={styles.form}>
+            <form onClick={onSubmit} className={styles.form}>
               <h3 className={styles.formTitle}>
                 Drop me a Message
               </h3>
@@ -205,15 +188,11 @@ export default function Home() {
                 I&apos;&apos;d LOVE to hear from you!
               </p>
               <div className={styles.formGroup}>
-                <label className={` ${styles.label}`}>Your name</label>
-                <input onChange={handleChange} placeholder='Ex: John Doe' className={styles.name} name="name" required/>
+                <label className={styles.label}>Subject</label>
+                <input className={styles.formField}  onChange={handleChange} placeholder='Ex: I need your expertise :)' type="text" name="subject" required/>
               </div>
               <div className={styles.formGroup}>
-                <label className={` ${styles.label}`}>Email address</label>
-                <input onChange={handleChange} placeholder='Ex: john@doe.com' className={styles.email} type="email" name="email" required/>
-              </div>
-              <div className={styles.formGroup}>
-                <label className={` ${styles.label}`}>Your message</label>
+                <label className={styles.label}>Your message</label>
                 <textarea onChange={handleChange} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
