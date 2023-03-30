@@ -20,8 +20,6 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null)
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({ subject: '', message: ""})
-  const [formSubmitLoading, setFormSubmitLoading] = useState(false)
-  const [formMessageSent, setFormMessageSent] = useState(false)
   const [profileImageContainerKey, setProfileImageContainerKey] = useState(0)
 
   useEffect(() =>{
@@ -39,7 +37,6 @@ export default function Home() {
 
 
    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormMessageSent(false)
     const name = event.target.name as keyof Email;
     const value = event.target.value;
     const newContactFormData = {...contactFormData}
