@@ -90,8 +90,9 @@ h2{
   margin-bottom: 41px;
 }
 
-input,textarea {
+input,textarea, input::placeholder, textarea::placeholder {
   font-family: Roboto;
+  font-weight: 100;
 }
 
 p{
