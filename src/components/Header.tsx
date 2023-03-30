@@ -3,6 +3,7 @@ import Link from 'next/link'
 import GilbertLogo from '../../public/svg/gilbert-logo.svg'
 import styles from '@/styles/Header.module.css'
 import { RefObject } from 'react'
+import { Button } from '@/components'
 import { Menu, Close } from '@mui/icons-material'
 
 
@@ -23,30 +24,30 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) =>
 
   const links = [
     {
-      label: "Bio", 
+      label: "BIO", 
       sectionRef: sectionRefs[0],
     },
     {
-      label: "Expertise & Skills", 
+      label: "EXPERTISE & SKILLS", 
       sectionRef: sectionRefs[1],
     },
     {
-      label: "Portfolio", 
+      label: "PORTFOLIO", 
       sectionRef: sectionRefs[2],
     },
     {
-      label: "Certifications", 
+      label: "CERTIFICATIONS", 
       sectionRef: sectionRefs[3],
     },
     {
-      label: "Contact",
+      label: "CONTACT",
       sectionRef: sectionRefs[4]
     }
   ]
 
   const onLinkPressed = (link: LinkData) => {
     let yOffset = -325
-    if(link.label == "Bio"){
+    if(link.label == "BIO"){
         onBioLinkPressed()
     }
 
@@ -91,9 +92,11 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) =>
             {link.label}
           </li>
         ))}
-        <li className={styles.resume}>
+        <li className={styles.resumeButtonLinkContainer}>
           <Link target="_blank" href="https://drive.google.com/file/d/1bHK7xjj9_oZpWoI1kta_4LiHRwTv4Qts/view?usp=share_link">
-           Resume
+           <Button>
+             Resume
+           </Button>
           </Link>
         </li>
       </ul>

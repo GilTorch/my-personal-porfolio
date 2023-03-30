@@ -20,10 +20,6 @@
     width: 7%
 }
 
-.logoCircle{
-   color: var(--gold);
-}
-
 .links{
     width: 71.04%;
     height: 100%;
@@ -38,45 +34,16 @@
 .link{
     font-family: Roboto;
     display: inline-block;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+.link:hover{
+    transition: 0.5s;
     color: white;
-    font-size: 16px;
-    cursor: pointer;
 }
-
-
-.resume{
-    display:inline-block;
-   background-color: var(--gold);
-    width: 14.66%;
-    height: 50px;
-    text-align: center;    
-    border: 3px solid var(--gold);
-   box-sizing: border-box;
-    border-radius: 24px;
-}
-
-
-.resume:hover {
-   background-color: transparent;
-   transition: 0.5s;
-    cursor: pointer;
-}
-
-.resume:hover a{
-    color: var(--gold);
-}
-
-.resume a {
-    font-family: Roboto;
-    font-weight: bold;
-    display: inline-block; 
-    font-weight: 700;
-    padding-top: 15.5px;
-    color: black;
-    text-decoration: none;
-}
-
-
 
 .link a {
     color: white;
@@ -94,7 +61,8 @@
 @media only screen and (max-width: 768px){
 
     .nav{
-        height: 300px;
+        /* height: 300px; */
+        height: auto;
         animation: slideDown;
         animation-duration:  0.5s;
     }
@@ -105,18 +73,12 @@
        flex-direction: column;
        align-items: center;
     }
+
     .link{
         width: 100%;
         display: block;
         text-align:center;
-        margin-top: 30px;
-    }
-    .resume{
-        width: 50%;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        margin-top: 20px;
     }
 
     .logo{
@@ -141,13 +103,11 @@
         margin-right: 0px;
     }
 
-    .formSubmitButton{
+    .resumeButtonLinkContainer{
+        width: 90%;
+    } 
+
+    .button{
         width: 100%;
     }
 } 
-
-@media only screen and (max-width: 768px){
-    .resume{
-        width: 100%;
-    }
-}

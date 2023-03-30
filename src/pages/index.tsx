@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link' 
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
-import { Header, Footer, Head } from '@/components'
+import { Header, Footer, Head, Button } from '@/components'
 import { skillsData, projects, certifications, socials } from '@/utils/data'
 
 type Email = {
@@ -217,7 +217,7 @@ export default function Home() {
                 <textarea onChange={handleChange} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <button disabled={formSubmitLoading} type="submit" className={styles.formSubmitButtons}><span>{renderSubmitButtonLabel()}</span></button>
+                <Button disabled={formSubmitLoading} type="submit" ><span>{renderSubmitButtonLabel()}</span></Button>
               </div>
             </form>
           </div>
