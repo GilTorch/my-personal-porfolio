@@ -70,14 +70,14 @@ export default function Home() {
    }
  
   const renderSubmitButtonLabel = () => {
-    let label = "Send your message"
+    let label = "SEND"
 
     if(formSubmitLoading){
-      label = "Sending your message..."
+      label = "SENDING..."
     } 
 
     if(formMessageSent){
-      label = "Sent!"
+      label = "SENT!"
     }
 
     return label

@@ -95,7 +95,7 @@ const Header: React.FC<Props> = ({ sectionRefs, onMobile, onBioLinkPressed }) =>
         <li className={styles.resumeButtonLinkContainer}>
           <Link target="_blank" href="https://drive.google.com/file/d/1bHK7xjj9_oZpWoI1kta_4LiHRwTv4Qts/view?usp=share_link">
            <Button>
-             Resume
+             RESUME
            </Button>
           </Link>
         </li>
