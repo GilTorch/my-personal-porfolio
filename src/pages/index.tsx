@@ -52,20 +52,6 @@ export default function Home() {
     window.location.href=`mailto:infotorch2014@gmail.com?subject=${contactFormData.subject}&body=${contactFormData.message}`
    }
  
-  const renderSubmitButtonLabel = () => {
-    let label = "SEND"
-
-    if(formSubmitLoading){
-      label = "SENDING..."
-    } 
-
-    if(formMessageSent){
-      label = "SENT!"
-    }
-
-    return label
-  }
-
   const onBioLinkPressed = () => {
     setProfileImageContainerKey(Math.random())
   }
@@ -180,7 +166,7 @@ export default function Home() {
             </h2>
           </div>
           <div className={styles.contactCol2}>
-            <form onClick={onSubmit} className={styles.form}>
+            <form onSubmit={onSubmit} className={styles.form}>
               <h3 className={styles.formTitle}>
                 Drop me a Message
               </h3>
@@ -196,7 +182,7 @@ export default function Home() {
                 <textarea onChange={handleChange} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
-                <Button disabled={formSubmitLoading} type="submit" ><span>{renderSubmitButtonLabel()}</span></Button>
+                <Button type="submit" ><span>SEND</span></Button>
               </div>
             </form>
           </div>

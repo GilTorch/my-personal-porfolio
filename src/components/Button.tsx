@@ -9,7 +9,7 @@ type Props = {
 
 const Button: React.FC<Props> = ({ children, disabled = false, type = "button" }) => {
     return (
-        <button className={styles.button} type={type} disabled={disabled}>
+        <button disabled={disabled} className={styles.button} type={type}>
             {children}
         </button>
     )
