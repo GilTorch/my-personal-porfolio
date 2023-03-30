@@ -33,7 +33,6 @@
 
 
 .section{
-
     min-height: 100vh;
 }
 
@@ -115,10 +114,7 @@
 }
 
 .skillCardBack{
-    position: relative;
-    top: -433px;
-    z-index: -1;
-    left: 0;
+    margin-top: -433px;
     transform: rotateY(180deg)
 }
 
