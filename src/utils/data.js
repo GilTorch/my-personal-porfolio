@@ -365,7 +365,7 @@ export const allProjectDetails = [
       illustration: <KayRapidSVG />,
       title: "Kay Rapid",
       slug: "kayrapid",
-      caption: "a housing app that help finding a house to rent/buy in Haiti"
+      caption: "a housing app for Haiti"
     },
     {
       illustration: <ToThePointSVG />,

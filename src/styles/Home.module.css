@@ -186,11 +186,6 @@
     cursor: pointer;
 }
 
-.portfolioImageContainer{
-    background-color: rgba(255,255,255,0.5);
-
-}
-
 .portfolioImageContainer,.certificationImageContainer{
     position: relative;
     overflow: hidden;
@@ -202,9 +197,13 @@
     height: 200px;
 }
 
+.portfolioImageContainer,.certificationImageContainer{
+    background-color: rgba(255,255,255,0.3);
+}
 
 
 .certificationImageContainer:hover, .portfolioImageContainer:hover {
+    background-color: rgba(255,255,255,0.5);
     transition: 0.5s;
     cursor: pointer;
 }

@@ -148,7 +148,7 @@ export default function Home() {
           <div className={styles.certifications}>
             {certifications.map((certification,index) => (
               <div key={index} className={styles.certification}>
-                <div style={{backgroundColor: certification.backgroundColor}} className={styles.certificationImageContainer}>
+                <div className={styles.certificationImageContainer}>
                     {certification.illustration}
                 </div>
                 <p>{certification.title}</p>
