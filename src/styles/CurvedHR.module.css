@@ -1,0 +1,16 @@
+.curvedHRContainer{
+    width: 100%;
+    margin: 10rem 0;
+}
+
+.curvedHRContainer svg{
+    opacity: 0.09;
+    display: block; 
+    margin: auto;
+}
+
+@media only screen and (max-width: 768px){
+    .curvedHRContainer{
+        margin: 5rem 0;
+    }
+}

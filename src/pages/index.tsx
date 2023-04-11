@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link' 
 import styles from '@/styles/Home.module.css'
 import ProfilePicImage from '../../public/images/professional_profile_pic.jpeg'
-import { Header, Footer, Head, Button } from '@/components'
+import { Header, Footer, Head, Button, CurvedHR } from '@/components'
 import { skillsData, projects, certifications, socials } from '@/utils/data'
 
 type Email = {
@@ -21,6 +21,10 @@ export default function Home() {
   const [onMobile, setOnMobile] = useState<boolean>(false)
   const [contactFormData, setContactFormData] = useState<Email>({ subject: '', message: ""})
   const [profileImageContainerKey, setProfileImageContainerKey] = useState(0)
+
+  const skillCardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)]
+
+  const skillCardsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() =>{
     const resizeCallBack = () => {
@@ -98,13 +102,15 @@ export default function Home() {
             </div>
            </div>
         </section>
+        <CurvedHR />
         <section ref={expertiseAndSkillsRef} className={styles.section} id="expertise-and-skills">
           <h2>Expertise & Skills <span className={` ${styles.hint}`}>({onMobile ? "Click" : "Hover"} on the skill category to see skills)</span></h2>
           <div className={styles.skillCards}>
             {skillsData.map((skill,index) => (
-              <div key={index}  className={styles.skillCardBox}>
+              <div id={`skill-card-${index}`} key={index}  className={styles.skillCardBox}>
                 <div className={styles.skillCard}>
                   <div 
+                    ref={skillCardRefs[index]}
                     className={styles.skillCardFront}
                   >
                     <Image alt={`${skill.category} Skill`} src={skill.backgroundImage} style={{objectFit: 'cover', opacity: 0.5}} fill/>
@@ -127,7 +133,14 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className={styles.slides}>
+            <a href="#skill-card-0"></a>
+            <a href="#skill-card-1"></a>
+            <a href="#skill-card-2"></a>
+            <a href="#skill-card-3"></a>
+          </div>
         </section>
+        <CurvedHR />
         <section ref={portfolioRef} className={styles.section} id="portfolio">
           <h2 className={styles.portfolioProjectsTitle}>My Portfolio</h2>
           <div className={styles.portfolioProjects}>
@@ -143,6 +156,7 @@ export default function Home() {
           ))}
           </div>
         </section>
+        <CurvedHR />
         <section ref={certificationsRef} className={styles.section} id="certifications">
           <h2>Certifications</h2>
           <div className={styles.certifications}>
@@ -156,6 +170,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        <CurvedHR />
         <section ref={contactRef} className={styles.section} id="contact">
           <div className={styles.contactCol1}>
             <h2 className={styles.contactSectionTitle}>

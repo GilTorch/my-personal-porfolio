@@ -21,6 +21,12 @@
     margin-top: 100px;
 }
 
+.firstSeparator{
+    margin-top: 100px;
+    height: 3px;
+    background-color: var(--gold);
+    border: none;
+}
 
 .profileImageContainer{
     position: relative;
@@ -29,11 +35,6 @@
     border-radius: 50%;
     overflow: hidden;
     animation: moveIn 1s;
-}
-
-
-.section{
-    min-height: 100vh;
 }
 
 .hint{
@@ -81,10 +82,54 @@
 .skillCards{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.slides{
+    display: none;
+}
+
+.slides::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .slides::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+  .slides::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .slides > div {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 300px;
+    height: 300px;
+    margin-right: 50px;
+    border-radius: 10px;
+    background: #eee;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+  }
+
+.slides a{
+    width: 10px;
+    height: 10px;
+    background-color: white; 
+    border-radius: 50%;
 }
 
 .skillCardBox {
+    width: 100%;
     perspective: 800px;
     transition: all 0.3s ease 0s;
 }
@@ -383,6 +428,20 @@
 
 
  @media only screen and (max-width: 768px){
+
+    .slides{
+        display: flex;
+        width: 30%;
+        margin: 30px auto 0 auto;
+        justify-content: space-between;
+        overflow-x: auto;
+    }
+    
+
+    .section{
+        padding: 0 10px;
+    }
+
     .main{
         width: 100%;
         margin-top: 300px;
@@ -393,9 +452,10 @@
     
     .skillCards{
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         margin-bottom: 20px;
+        overflow: hidden;
     } 
     
     .skillCardBox{
@@ -403,13 +463,13 @@
     }
 
     .skillCard,.skillCardFront, .skillCardBack{
-        width: 100%;
-        height: 100vh;
+        width: 100vw;
+        height: 50vh;
         margin: 0;
     }
 
     .skillCardBack{
-        top: -100vh;
+        top: -50vh;
     }
 
     .portfolioProjectsTitle {
