@@ -2,6 +2,10 @@
 
 /** Bio **/
 
+.section:last-of-type{
+    margin-bottom: 5rem;
+}
+
 @keyframes moveIn{
     from {
         position: relative;
@@ -444,7 +448,6 @@
 
     .main{
         width: 100%;
-        margin-top: 300px;
     }
     .nav{
         height: auto;
