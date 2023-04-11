@@ -133,7 +133,7 @@ export const allProjectDetails = [
           description: "Being the one that came up with the idea, I became the de factor leader. I basically planned the product meetings and led the standups"
         },
       ],
-      outcome: "The whole UI and the livestream feature was completed. AFter "
+      outcome: "The client has put the project on hold... "
     },
     {
       title: "To The Point",
