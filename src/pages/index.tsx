@@ -24,7 +24,6 @@ export default function Home() {
 
   const skillCardRefs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)]
 
-  const skillCardsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() =>{
     const resizeCallBack = () => {
@@ -189,11 +188,11 @@ export default function Home() {
               </p>
               <div className={styles.formGroup}>
                 <label className={styles.label}>Subject</label>
-                <input className={styles.formField}  onChange={handleChange} placeholder='Ex: I need your expertise :)' type="text" name="subject" required/>
+                <input className={styles.formField}  onChange={handleChange} placeholder='Looking for a React Native Developer' type="text" name="subject" required/>
               </div>
               <div className={styles.formGroup}>
                 <label className={styles.label}>Your message</label>
-                <textarea onChange={handleChange} placeholder="Ex: Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
+                <textarea onChange={handleChange} placeholder="Hi Gilbert! Let's work together" rows={10} name="message" required></textarea>
               </div>
               <div className={styles.formGroup}>
                 <Button type="submit" ><span>SEND</span></Button>
