@@ -161,12 +161,14 @@ export default function Home() {
           <h2>Certifications</h2>
           <div className={styles.certifications}>
             {certifications.map((certification,index) => (
-              <div key={index} className={styles.certification}>
-                <div className={styles.certificationImageContainer}>
-                    {certification.illustration}
+              <Link key={index} target="_blank" href={certification.link}>
+                <div  className={styles.certification}>
+                  <div className={styles.certificationImageContainer}>
+                      {certification.illustration}
+                  </div>
+                  <p>{certification.title}</p>
                 </div>
-                <p>{certification.title}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

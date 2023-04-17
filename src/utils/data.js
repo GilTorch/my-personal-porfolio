@@ -378,13 +378,13 @@ export const allProjectDetails = [
   export const certifications = [
     {
       illustration: <FreeCodeCampSVG />,
-      backgroundColor: "#2E6338",
       title: "FreeCodeCamp Front End",
+      link: 'https://www.freecodecamp.org/certification/giltorch/legacy-front-end',
     },
     {
-      backgroundColor: "#11ABDF",
       illustration: <FlatironSchoolSVG />,
       title: "Flatiron Full Stack Web ",
+      link: 'https://drive.google.com/file/d/1x0oIqzfX0ICiFtW7CSz5X_EbYGFSxI2a/view?usp=share_link'
     }
   ]
 
