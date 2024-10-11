@@ -16,6 +16,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
+
 export const allProjectDetails = [
     {
       title: "Smart Patient",
@@ -83,19 +84,31 @@ export const allProjectDetails = [
     {
       title: "Mèt Fèy Vèt",
       slug: 'metfeyvet',
-      description: "Met Fey Vet, is a portal for a local activist and politician from Port-au-Prince Haiti. It allow him to share his ideas and welcome public opinion through forums. Also, it gives him the ability to start facebook live",
+      description: "Mèt Fèy Vèt is a portal for a local activist and politician from Port-au-Prince Haiti. It allows him to share his ideas and welcome public opinion through forums. Also, it gives him the ability to start a Facebook Live. I am the sole developer of this project.  I played multiple roles in this project: ",
       duration: "1 year",
       roles: [
+        {
+          label: "UX/UI Designer",
+          description: "As a UX/UI Designer I completely designed all of the screens in Figma"
+        },
+        {
+          label: "Database Designer",
+          description: "I made the decisions around how the database would be created and the fields that would go in it."
+        },
+        {
+          label: "Back-End Engineer",
+          description: "I created a Ruby on Rails project and created all of the relevant routes to be accessed via GET, POST ",
+        },
+        {
+          label: "Front-End Engineer",
+          description: "I created the next js project and coded all of the screens to look almost exactly like the design. I used Material UI to help me with the task.",
+        },
         {
           label: "Tech Stack",
           description: "Ruby on Rails, Next JS, Material UI"
         },
-        {
-          label: "Full Stack Web Developer",
-          description: "Being the one that came up with the idea, I became the de factor leader. I basically planned the product meetings and led the standups"
-        },
       ],
-      outcome: "The whole UI and the livestream feature was completed. AFter "
+      outcome: " Most of the features are done but the website still contains placeholder text. I am still waiting for the client to provide those."
     },
     {
       title: "Kay Rapid",
